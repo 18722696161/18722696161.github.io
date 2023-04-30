@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>队列 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/46.971341f1.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>算法</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/algorithm/时间、空间复杂度.html" class="sidebar-link">时间、空间复杂度</a></li><li><a href="/about/algorithm/栈.html" class="sidebar-link">栈</a></li><li><a href="/about/algorithm/队列.html" class="active sidebar-link">队列</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#概念" class="sidebar-link">概念</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#算法题" class="sidebar-link">算法题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#实现一个基本的队列-包含入队、出队、获取队首元素和队列长度的方法。" class="sidebar-link">实现一个基本的队列，包含入队、出队、获取队首元素和队列长度的方法。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#判断一个字符串是否为回文字符串-要求忽略空格和标点符号。例如-racecar-和-a-man-a-plan-a-canal-panama-都是回文字符串。" class="sidebar-link">判断一个字符串是否为回文字符串，要求忽略空格和标点符号。例如，'racecar' 和 'A man, a plan, a canal: Panama' 都是回文字符串。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#用队列实现一个栈-并给出-push-和-pop-方法的实现。" class="sidebar-link">用队列实现一个栈，并给出 push() 和 pop() 方法的实现。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#用队列实现一个优先队列-队列元素包含值和优先级-优先级越高的元素排在队列的前面。" class="sidebar-link">用队列实现一个优先队列，队列元素包含值和优先级，优先级越高的元素排在队列的前面。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#用队列实现一个循环队列-并给出入队、出队、获取队首元素和队列长度的方法。循环队列是一种特殊的队列-它允许在队列的末尾插入新元素-同时在队列的开头删除元素-使得队列看起来像一个环形。" class="sidebar-link">用队列实现一个循环队列，并给出入队、出队、获取队首元素和队列长度的方法。循环队列是一种特殊的队列，它允许在队列的末尾插入新元素，同时在队列的开头删除元素，使得队列看起来像一个环形。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#设计一个支持-push、pop、top-和-getmin-操作的最小栈。其中-getmin-方法返回栈中的最小元素。" class="sidebar-link">设计一个支持 push、pop、top 和 getMin 操作的最小栈。其中，getMin 方法返回栈中的最小元素。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#给定一个由数字组成的数组-nums-和一个数字-k-计算数组中每个大小为-k-的连续子数组的平均值-并返回这些平均值组成的数组。" class="sidebar-link">给定一个由数字组成的数组 nums 和一个数字 k，计算数组中每个大小为 k 的连续子数组的平均值，并返回这些平均值组成的数组。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#给定一个由数字组成的数组-nums-和一个数字-k-返回所有连续子数组中的最小值。" class="sidebar-link">给定一个由数字组成的数组 nums 和一个数字 k，返回所有连续子数组中的最小值。</a></li><li class="sidebar-sub-header"><a href="/about/algorithm/队列.html#给定两个整数数组-nums1-和-nums2-以及一个整数-k。定义一对值-u-v-其中第一个元素来自-nums1-第二个元素来自-nums2。找到和最小的-k-对数字-u1-v1-u2-v2-uk-vk-。" class="sidebar-link">给定两个整数数组 nums1 和 nums2，以及一个整数 k。定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2。找到和最小的 k 对数字 (u1,v1), (u2,v2) ... (uk,vk)。</a></li></ul></li></ul></li><li><a href="/about/algorithm/链表.html" class="sidebar-link">链表</a></li><li><a href="/about/algorithm/集合.html" class="sidebar-link">集合</a></li><li><a href="/about/algorithm/树.html" class="sidebar-link">树</a></li><li><a href="/about/algorithm/图.html" class="sidebar-link">图</a></li><li><a href="/about/algorithm/堆.html" class="sidebar-link">堆</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="队列"><a href="#队列" class="header-anchor">#</a> 队列</h1> <h2 id="概念"><a href="#概念" class="header-anchor">#</a> 概念</h2> <p>在JavaScript中，队列（Queue）是一种常用的数据结构，它遵循先进先出（FIFO）的原则，即最先进入队列的元素最先被处理。
+在JavaScript中，队列通常使用数组来实现。可以通过数组的 push() 方法将元素添加到队列的末尾，通过 shift() 方法将队列的第一个元素移除并返回。
+在实际应用中，队列可以用来解决一些问题，比如：</p> <ul><li>异步任务队列：将异步任务添加到队列中，按顺序依次执行，确保异步任务不会重叠或冲突。</li> <li>消息队列：用于消息的发布和订阅，确保消息按照先后顺序被处理。</li> <li>页面路由：将待处理的页面请求添加到队列中，确保页面按照顺序进行渲染。
+需要注意的是，JavaScript中的队列操作是基于数组实现的，如果需要处理大量的队列操作，可能会对性能造成一定的影响。在实际应用中，可以使用专门的队列数据结构库来实现高效的队列操作。</li></ul> <h2 id="算法题"><a href="#算法题" class="header-anchor">#</a> 算法题</h2> <h3 id="实现一个基本的队列-包含入队、出队、获取队首元素和队列长度的方法。"><a href="#实现一个基本的队列-包含入队、出队、获取队首元素和队列长度的方法。" class="header-anchor">#</a> 实现一个基本的队列，包含入队、出队、获取队首元素和队列长度的方法。</h3> <div class="language- extra-class"><pre class="language-text"><code>class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.shift();
+  }
+
+  front() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[0];
+  }
+
+  size() {
+    return this.items.length;
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+
+</code></pre></div><h3 id="判断一个字符串是否为回文字符串-要求忽略空格和标点符号。例如-racecar-和-a-man-a-plan-a-canal-panama-都是回文字符串。"><a href="#判断一个字符串是否为回文字符串-要求忽略空格和标点符号。例如-racecar-和-a-man-a-plan-a-canal-panama-都是回文字符串。" class="header-anchor">#</a> 判断一个字符串是否为回文字符串，要求忽略空格和标点符号。例如，'racecar' 和 'A man, a plan, a canal: Panama' 都是回文字符串。</h3> <div class="language- extra-class"><pre class="language-text"><code>function isPalindrome(str) {
+  const queue = new Queue();
+  const stack = [];
+
+  // 将字符串中的字母入队列和栈中
+  for (let i = 0; i &lt; str.length; i++) {
+    const char = str[i].toLowerCase();
+    if (/[a-z]/.test(char)) {
+      queue.enqueue(char);
+      stack.push(char);
+    }
+  }
+
+  // 依次比较队列和栈中的元素是否相同
+  while (!queue.isEmpty()) {
+    if (queue.dequeue() !== stack.pop()) {
+      return false;
+    }
+  }
+  return true;
+}
+</code></pre></div><h3 id="用队列实现一个栈-并给出-push-和-pop-方法的实现。"><a href="#用队列实现一个栈-并给出-push-和-pop-方法的实现。" class="header-anchor">#</a> 用队列实现一个栈，并给出 push() 和 pop() 方法的实现。</h3> <div class="language- extra-class"><pre class="language-text"><code>class Stack {
+  constructor() {
+    this.queue = new Queue();
+  }
+
+  push(element) {
+    this.queue.enqueue(element);
+  }
+
+  pop() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    const size = this.queue.size();
+    for (let i = 0; i &lt; size - 1; i++) {
+      this.queue.enqueue(this.queue.dequeue());
+    }
+    return this.queue.dequeue();
+  }
+
+  isEmpty() {
+    return this.queue.isEmpty();
+  }
+}
+</code></pre></div><h3 id="用队列实现一个优先队列-队列元素包含值和优先级-优先级越高的元素排在队列的前面。"><a href="#用队列实现一个优先队列-队列元素包含值和优先级-优先级越高的元素排在队列的前面。" class="header-anchor">#</a> 用队列实现一个优先队列，队列元素包含值和优先级，优先级越高的元素排在队列的前面。</h3> <div class="language- extra-class"><pre class="language-text"><code>class PriorityQueue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element, priority) {
+    const newItem = { element, priority };
+    let added = false;
+
+    for (let i = 0; i &lt; this.items.length; i++) {
+      if (newItem.priority &lt; this.items[i].priority) {
+        this.items.splice(i, 0, newItem);
+        added = true;
+        break;
+      }
+    }
+
+    if (!added) {
+      this.items.push(newItem);
+    }
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.shift().element;
+  }
+
+  front() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[0].element;
+  }
+
+  size() {
+    return this.items.length;
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}
+</code></pre></div><h3 id="用队列实现一个循环队列-并给出入队、出队、获取队首元素和队列长度的方法。循环队列是一种特殊的队列-它允许在队列的末尾插入新元素-同时在队列的开头删除元素-使得队列看起来像一个环形。"><a href="#用队列实现一个循环队列-并给出入队、出队、获取队首元素和队列长度的方法。循环队列是一种特殊的队列-它允许在队列的末尾插入新元素-同时在队列的开头删除元素-使得队列看起来像一个环形。" class="header-anchor">#</a> 用队列实现一个循环队列，并给出入队、出队、获取队首元素和队列长度的方法。循环队列是一种特殊的队列，它允许在队列的末尾插入新元素，同时在队列的开头删除元素，使得队列看起来像一个环形。</h3> <div class="language- extra-class"><pre class="language-text"><code>class CircularQueue {
+  constructor(k) {
+    this.items = new Array(k);
+    this.front = 0;
+    this.rear = 0;
+    this.size = 0;
+  }
+
+  enqueue(element) {
+    if (this.isFull()) {
+      return false;
+    }
+    this.items[this.rear] = element;
+    this.rear = (this.rear + 1) % this.items.length;
+    this.size++;
+    return true;
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return false;
+    }
+    const removedElement = this.items[this.front];
+    this.items[this.front] = null;
+    this.front = (this.front + 1) % this.items.length;
+    this.size--;
+    return removedElement;
+  }
+
+  front() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[this.front];
+  }
+
+  getSize() {
+    return this.size;
+  }
+
+  isEmpty() {
+    return this.getSize() === 0;
+  }
+
+  isFull() {
+    return this.getSize() === this.items.length;
+  }
+}
+</code></pre></div><h3 id="设计一个支持-push、pop、top-和-getmin-操作的最小栈。其中-getmin-方法返回栈中的最小元素。"><a href="#设计一个支持-push、pop、top-和-getmin-操作的最小栈。其中-getmin-方法返回栈中的最小元素。" class="header-anchor">#</a> 设计一个支持 push、pop、top 和 getMin 操作的最小栈。其中，getMin 方法返回栈中的最小元素。</h3> <div class="language- extra-class"><pre class="language-text"><code>class MinStack {
+  constructor() {
+    this.stack = [];
+    this.minStack = [];
+  }
+
+  push(element) {
+    if (this.minStack.length === 0 || element &lt;= this.getMin()) {
+      this.minStack.push(element);
+    }
+    this.stack.push(element);
+  }
+
+  pop() {
+    if (this.stack.length === 0) {
+      return null;
+    }
+    const poppedElement = this.stack.pop();
+    if (poppedElement === this.getMin()) {
+      this.minStack.pop();
+    }
+    return poppedElement;
+  }
+
+  top() {
+    if (this.stack.length === 0) {
+      return null;
+    }
+    return this.stack[this.stack.length - 1];
+  }
+
+  getMin() {
+    if (this.minStack.length === 0) {
+      return null;
+    }
+    return this.minStack[this.minStack.length - 1];
+  }
+}
+</code></pre></div><h3 id="给定一个由数字组成的数组-nums-和一个数字-k-计算数组中每个大小为-k-的连续子数组的平均值-并返回这些平均值组成的数组。"><a href="#给定一个由数字组成的数组-nums-和一个数字-k-计算数组中每个大小为-k-的连续子数组的平均值-并返回这些平均值组成的数组。" class="header-anchor">#</a> 给定一个由数字组成的数组 nums 和一个数字 k，计算数组中每个大小为 k 的连续子数组的平均值，并返回这些平均值组成的数组。</h3> <div class="language- extra-class"><pre class="language-text"><code>function findAverageOfSubarrays(nums, k) {
+  const result = [];
+  let windowSum = 0;
+  let windowStart = 0;
+
+  for (let windowEnd = 0; windowEnd &lt; nums.length; windowEnd++) {
+    windowSum += nums[windowEnd];
+
+    if (windowEnd &gt;= k - 1) {
+      result.push(windowSum / k);
+      windowSum -= nums[windowStart];
+      windowStart++;
+    }
+  }
+
+  return result;
+}
+</code></pre></div><h3 id="给定一个由数字组成的数组-nums-和一个数字-k-返回所有连续子数组中的最小值。"><a href="#给定一个由数字组成的数组-nums-和一个数字-k-返回所有连续子数组中的最小值。" class="header-anchor">#</a> 给定一个由数字组成的数组 nums 和一个数字 k，返回所有连续子数组中的最小值。</h3> <div class="language- extra-class"><pre class="language-text"><code>function findMinInSubarrays(nums, k) {
+  const result = [];
+  let min = Infinity;
+  let windowStart = 0;
+
+  for (let windowEnd = 0; windowEnd &lt; nums.length; windowEnd++) {
+    min = Math.min(min, nums[windowEnd]);
+
+    if (windowEnd &gt;= k - 1) {
+      result.push(min);
+      if (nums[windowStart] === min) {
+        min = Infinity;
+        for (let i = windowStart + 1; i &lt;= windowEnd; i++) {
+          min = Math.min(min, nums[i]);
+        }
+      }
+      windowStart++;
+    }
+  }
+
+  return result;
+}
+</code></pre></div><h3 id="给定两个整数数组-nums1-和-nums2-以及一个整数-k。定义一对值-u-v-其中第一个元素来自-nums1-第二个元素来自-nums2。找到和最小的-k-对数字-u1-v1-u2-v2-uk-vk-。"><a href="#给定两个整数数组-nums1-和-nums2-以及一个整数-k。定义一对值-u-v-其中第一个元素来自-nums1-第二个元素来自-nums2。找到和最小的-k-对数字-u1-v1-u2-v2-uk-vk-。" class="header-anchor">#</a> 给定两个整数数组 nums1 和 nums2，以及一个整数 k。定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2。找到和最小的 k 对数字 (u1,v1), (u2,v2) ... (uk,vk)。</h3> <div class="language- extra-class"><pre class="language-text"><code>function findKPairsWithSmallestSums(nums1, nums2, k) {
+  const result = [];
+  if (nums1.length === 0 || nums2.length === 0 || k === 0) {
+    return result;
+  }
+
+  const heap = new MinHeap((a, b) =&gt; a[0] + a[1] - b[0] - b[1]);
+
+  for (let i = 0; i &lt; Math.min(nums1.length, k); i++) {
+    heap.push([nums1[i], nums2[0], 0]);
+  }
+
+  while (k-- &gt; 0 &amp;&amp; !heap.isEmpty()) {
+    const [num1, num2, index2] = heap.pop();
+    result.push([num1, num2]);
+    if (index2 + 1 &lt; nums2.length) {
+      heap.push([num1, nums2[index2 + 1], index2 + 1]);
+    }
+  }
+
+  return result;
+}
+
+class MinHeap {
+  constructor(compareFn) {
+    this.compare = compareFn || ((a, b) =&gt; a - b);
+    this.heap = [];
+  }
+
+  get size() {
+    return this.heap.length;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  peek() {
+    return this.heap[0];
+  }
+
+  push(value) {
+    this.heap.push(value);
+    this.bubbleUp(this.size - 1);
+  }
+
+  pop() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const root = this.heap[0];
+    const last = this.heap.pop();
+    if (!this.isEmpty()) {
+      this.heap[0] = last;
+      this.bubbleDown(0);
+    }
+    return root;
+  }
+
+  bubbleUp(index) {
+    while (index &gt; 0) {
+      const parentIndex = Math.floor((index - 1) / 2);
+      if (this.compare(this.heap[index], this.heap[parentIndex]) &gt;= 0) {
+        break;
+      }
+      this.swap(index, parentIndex);
+      index = parentIndex;
+    }
+  }
+
+  bubbleDown(index) {
+    while (index &lt; this.size) {
+      const leftIndex = index * 2 + 1;
+      const rightIndex = index * 2 + 2;
+      let smallerIndex = index;
+      if (leftIndex &lt; this.size &amp;&amp; this.compare(this.heap[leftIndex], this.heap[smallerIndex]) &lt; 0) {
+        smallerIndex = leftIndex;
+      }
+      if (rightIndex &lt; this.size &amp;&amp; this.compare(this.heap[rightIndex], this.heap[smallerIndex]) &lt; 0) {
+        smallerIndex = rightIndex;
+      }
+      if (smallerIndex === index) {
+        break;
+      }
+      this.swap(index, smallerIndex);
+      index = smallerIndex;
+    }
+  }
+
+  swap(index1, index2) {
+    [this.heap[index1], this.heap[index2]] = [this.heap[index2], this.heap[index1]];
+  }
+}
+
+</code></pre></div><p>解析：本题使用了堆（优先队列）的数据结构。在使用堆的时候，我们需要维护一个大小为 k 的堆，堆中</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/algorithm/队列.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/algorithm/栈.html" class="prev">
+        栈
+      </a></span> <span class="next"><a href="/about/algorithm/链表.html">
+        链表
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/46.971341f1.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

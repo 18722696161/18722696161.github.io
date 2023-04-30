@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>九、千方百计——Event Loop 与异步更新策略 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/18.ba229207.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>性能优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/nature/性能优化知识体系.html" class="sidebar-link">知识体系： 从一道面试题说起</a></li><li><a href="/about/nature/webpack性能调优与Gzip原理.html" class="sidebar-link">一、webpack 性能调优与 Gzip 原理</a></li><li><a href="/about/nature/图片优化-质量与性能的博弈.html" class="sidebar-link">二、图片优化——质量与性能的博弈</a></li><li><a href="/about/nature/浏览器缓存机制介绍与缓存策略剖析.html" class="sidebar-link">三、浏览器缓存机制介绍与缓存策略剖析</a></li><li><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html" class="sidebar-link">四、本地存储——从 Cookie 到 Web Storage、IndexDB</a></li><li><a href="/about/nature/CDN 的缓存与回源机制解析.html" class="sidebar-link">五、CDN 的缓存与回源机制解析</a></li><li><a href="/about/nature/服务端渲染的探索与实践.html" class="sidebar-link">六、服务端渲染的探索与实践</a></li><li><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html" class="sidebar-link">七、知己知彼——解锁浏览器背后的运行机制</a></li><li><a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html" class="sidebar-link">八、对症下药—— DOM 优化原理与基本实践</a></li><li><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html" class="active sidebar-link">九、千方百计——Event Loop 与异步更新策略</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#前置知识-event-loop-中的-渲染时机" class="sidebar-link">前置知识：Event Loop 中的“渲染时机”</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#micro-task-与-macro-task" class="sidebar-link">Micro-Task 与 Macro-Task</a></li><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#event-loop-过程解析" class="sidebar-link">Event Loop 过程解析</a></li><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#渲染的时机" class="sidebar-link">渲染的时机</a></li></ul></li><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#生产实践-异步更新策略-以-vue-为例" class="sidebar-link">生产实践：异步更新策略——以 Vue 为例</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#异步更新的优越性" class="sidebar-link">异步更新的优越性</a></li><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#vue状态更新手法-nexttick" class="sidebar-link">Vue状态更新手法：nextTick</a></li></ul></li><li class="sidebar-sub-header"><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html" class="sidebar-link">十、最后一击——回流（Reflow）与重绘（Repaint）</a></li><li><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html" class="sidebar-link">十一、优化首屏体验——Lazy-Load 初探</a></li><li><a href="/about/nature/事件的节流throttle与防抖debounce.html" class="sidebar-link">十二、事件的节流（throttle）与防抖（debounce）</a></li><li><a href="/about/nature/Performance、LightHouse 与性能 API.html" class="sidebar-link">十三、Performance、LightHouse 与性能 API</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="九、千方百计-event-loop-与异步更新策略"><a href="#九、千方百计-event-loop-与异步更新策略" class="header-anchor">#</a> 九、千方百计——Event Loop 与异步更新策略</h1> <p>Vue 和 React 都实现了异步更新策略。虽然实现的方式不尽相同，但都达到了减少 DOM 操作、避免过
+度渲染的目的。通过研究框架的运行机制，其设计思路将深化我们对 DOM 优化的理解，其实现手法将
+拓宽我们对 DOM 实践的认知。
+本节我们将基于 Event Loop 机制，对 Vue 的异步更新策略作探讨。</p> <h2 id="前置知识-event-loop-中的-渲染时机"><a href="#前置知识-event-loop-中的-渲染时机" class="header-anchor">#</a> 前置知识：Event Loop 中的“渲染时机”</h2> <p>搞懂 Event Loop，是理解 Vue 对 DOM 操作优化的第一步。</p> <h3 id="micro-task-与-macro-task"><a href="#micro-task-与-macro-task" class="header-anchor">#</a> Micro-Task 与 Macro-Task</h3> <p>事件循环中的异步队列有两种：macro（宏任务）队列和 micro（微任务）队列。
+常见的 macro-task 比如： setTimeout、setInterval、 setImmediate、script（整体代码）、 I/O 操
+作、UI 渲染等。
+常见的 micro-task 比如: process.nextTick、Promise、MutationObserver 等。</p> <h3 id="event-loop-过程解析"><a href="#event-loop-过程解析" class="header-anchor">#</a> Event Loop 过程解析</h3> <p>基于对 micro 和 macro 的认知，我们来走一遍完整的事件循环过程。
+一个完整的 Event Loop 过程，可以概括为以下阶段：</p> <ul><li>初始状态：调用栈空。micro 队列空，macro 队列里有且只有一个 script 脚本（整体代码）。</li> <li>全局上下文（script 标签）被推入调用栈，同步代码执行。在执行的过程中，通过对一些接口的调
+用，可以产生新的 macro-task 与 micro-task，它们会分别被推入各自的任务队列里。同步代码执
+行完了，script 脚本会被移出 macro 队列，这个过程本质上是队列的 macro-task 的执行和出队
+的过程。</li> <li>上一步我们出队的是一个 macro-task，这一步我们处理的是 micro-task。但需要注意的是：当
+macro-task 出队时，任务是一个一个执行的；而 micro-task 出队时，任务是一队一队执行的（如
+下图所示）。因此，我们处理 micro 队列这一步，会逐个执行队列中的任务并把它出队，直到队
+列被清空。
+<img src="/assets/img/youhua41.1565189e.png"></li> <li>执行渲染操作，更新界面（敲黑板划重点）。</li> <li>检查是否存在 Web worker 任务，如果有，则对其进行处理 。
+（上述过程循环往复，直到两个队列都清空）
+我们总结一下，每一次循环都是一个这样的过程：
+<img src="/assets/img/youhua42.48032a3d.png"></li></ul> <h3 id="渲染的时机"><a href="#渲染的时机" class="header-anchor">#</a> 渲染的时机</h3> <p>大家现在思考一个这样的问题：假如我想要在异步任务里进行DOM更新，我该把它包装成 micro 还是
+macro 呢？
+我们先假设它是一个 macro 任务，比如我在 script 脚本中用 setTimeout 来处理它：</p> <div class="language- extra-class"><pre class="language-text"><code>// task是一个用于修改DOM的回调
+setTimeout(task, 0)
+</code></pre></div><p>现在 task 被推入的 macro 队列。但因为 script 脚本本身是一个 macro 任务，所以本次执行完 script
+脚本之后，下一个步骤就要去处理 micro 队列了，再往下就去执行了一次 render，对不对？
+但本次render我的目标task其实并没有执行，想要修改的DOM也没有修改，因此这一次的render其实
+是一次无效的render。
+macro 不 ok，我们转向 micro 试试看。我用 Promise 来把 task 包装成是一个 micro 任务：</p> <div class="language- extra-class"><pre class="language-text"><code>Promise.resolve().then(task)
+</code></pre></div><p>那么我们结束了对 script 脚本的执行，是不是紧接着就去处理 micro-task 队列了？micro-task 处理
+完，DOM 修改好了，紧接着就可以走 render 流程了——不需要再消耗多余的一次渲染，不需要再等
+待一轮事件循环，直接为用户呈现最即时的更新结果。
+因此，我们更新 DOM 的时间点，应该尽可能靠近渲染的时机。当我们需要在异步任务中实现 DOM 修
+改时，把它包装成 micro 任务是相对明智的选择。</p> <h2 id="生产实践-异步更新策略-以-vue-为例"><a href="#生产实践-异步更新策略-以-vue-为例" class="header-anchor">#</a> 生产实践：异步更新策略——以 Vue 为例</h2> <p>什么是异步更新？
+当我们使用 Vue 或 React 提供的接口去更新数据时，这个更新并不会立即生效，而是会被推入到一个
+队列里。待到适当的时机，队列中的更新任务会被批量触发。这就是异步更新。
+异步更新可以帮助我们避免过度渲染，是我们上节提到的“让 JS 为 DOM 分压”的典范之一。</p> <h3 id="异步更新的优越性"><a href="#异步更新的优越性" class="header-anchor">#</a> 异步更新的优越性</h3> <p>异步更新的特性在于它只看结果，因此渲染引擎不需要为过程买单。
+最典型的例子，比如有时我们会遇到这样的情况：</p> <div class="language- extra-class"><pre class="language-text"><code>// 任务一
+this.content = '第一次测试'
+// 任务二
+this.content = '第二次测试'
+// 任务三
+this.content = '第三次测试'
+</code></pre></div><p>我们在三个更新任务中对同一个状态修改了三次，如果我们采取传统的同步更新策略，那么就要操作三
+次 DOM。但本质上需要呈现给用户的目标内容其实只是第三次的结果，也就是说只有第三次的操作是
+有意义的——我们白白浪费了两次计算。
+但如果我们把这三个任务塞进异步更新队列里，它们会先在 JS 的层面上被批量执行完毕。当流程走到
+渲染这一步时，它仅仅需要针对有意义的计算结果操作一次 DOM——这就是异步更新的妙处。</p> <h3 id="vue状态更新手法-nexttick"><a href="#vue状态更新手法-nexttick" class="header-anchor">#</a> Vue状态更新手法：nextTick</h3> <p>Vue 每次想要更新一个状态的时候，会先把它这个更新操作给包装成一个异步操作派发出去。这件事
+情，在源码中是由一个叫做 nextTick 的函数来完成的：</p> <div class="language- extra-class"><pre class="language-text"><code>export function nextTick(cb?: Function, ctx?: Object) {
+  let _resolve
+  callbacks.push(() =&gt; {
+    if (cb) {
+      try {
+        cb.call(ctx)
+      } catch (e) {
+        handleError(e, ctx, 'nextTick')
+      }
+    } else if (_resolve) {
+      _resolve(ctx)
+    }
+  })
+  // 检查上一个异步任务队列（即名为callbacks的任务数组）是否派发和执行完毕了。pending此处相
+  当于一个锁
+  if (!pending) {
+    // 若上一个异步任务队列已经执行完毕，则将pending设定为true（把锁锁上）
+    pending = true
+    // 是否要求一定要派发为macro任务
+    if (useMacroTask) {
+      macroTimerFunc()
+    } else {
+      // 如果不说明一定要macro 你们就全都是micro
+      microTimerFunc()
+    }
+  }
+  // $flow-disable-line
+  if (!cb &amp;&amp; typeof Promise !== 'undefined') {
+    return new Promise(resolve =&gt; {
+      _resolve = resolve
+    })
+  }
+}
+</code></pre></div><p>我们看到，Vue 的异步任务默认情况下都是用 Promise 来包装的，也就是是说它们都是 micro-task。
+这一点和我们“前置知识”中的渲染时机的分析不谋而合。
+为了带大家熟悉一下常见的 macro 和 micro 派发方式、加深对 Event Loop 的理解，我们继续细化解
+析一下 macroTimeFunc() 和 microTimeFunc() 两个方法。
+macroTimeFunc() 是这么实现的：</p> <div class="language- extra-class"><pre class="language-text"><code>// macro首选setImmediate 这个兼容性最差
+if (typeof setImmediate !== 'undefined' &amp;&amp; isNative(setImmediate)) {
+  macroTimerFunc = () =&gt; {
+    setImmediate(flushCallbacks)
+  }
+} else if (typeof MessageChannel !== 'undefined' &amp;&amp; (
+  isNative(MessageChannel) ||
+  // PhantomJS
+  MessageChannel.toString() === '[object MessageChannelConstructor]'
+)) {
+  const channel = new MessageChannel()
+  const port = channel.port2
+  channel.port1.onmessage = flushCallbacks
+  macroTimerFunc = () =&gt; {
+    port.postMessage(1)
+  }
+} else {
+  // 兼容性最好的派发方式是setTimeout
+  macroTimerFunc = () =&gt; {
+    setTimeout(flushCallbacks, 0)
+  }
+}
+</code></pre></div><p>microTimeFunc() 是这么实现的：</p> <div class="language- extra-class"><pre class="language-text"><code>// 简单粗暴 不是ios全都给我去Promise 如果不兼容promise 那么你只能将就一下变成macro了
+if (typeof Promise !== 'undefined' &amp;&amp; isNative(Promise)) {
+  const p = Promise.resolve()
+  microTimerFunc = () =&gt; {
+    p.then(flushCallbacks)
+    // in problematic UIWebViews, Promise.then doesn't completely break, but
+    // it can get stuck in a weird state where callbacks are pushed into the
+    // microtask queue but the queue isn't being flushed, until the browser
+    // needs to do some other work, e.g. handle a timer. Therefore we can
+    // &quot;force&quot; the microtask queue to be flushed by adding an empty timer.
+    if (isIOS) setTimeout(noop)
+  }
+} else {
+  // 如果无法派发micro，就退而求其次派发为macro
+  microTimerFunc = macroTimerFunc
+}
+</code></pre></div><p>我们注意到，无论是派发 macro 任务还是派发 micro 任务，派发的任务对象都是一个叫做
+flushCallbacks 的东西，这个东西做了什么呢？
+flushCallbacks 源码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function flushCallbacks() {
+  pending = false
+  // callbacks在nextick中出现过 它是任务数组（队列）
+  const copies = callbacks.slice(0)
+  callbacks.length = 0
+  // 将callbacks中的任务逐个取出执行
+  for (let i = 0; i &lt; copies.length; i++) {
+    copies[i]()
+  }
+}
+</code></pre></div><p>现在我们理清楚了：Vue 中每产生一个状态更新任务，它就会被塞进一个叫 callbacks 的数组（此处是
+任务队列的实现形式）中。这个任务队列在被丢进 micro 或 macro 队列之前，会先去检查当前是否有
+异步更新任务正在执行（即检查 pending 锁）。如果确认 pending 锁是开着的（false），就把它设置
+为锁上（true），然后对当前 callbacks 数组的任务进行派发（丢进 micro 或 macro 队列）和执行。设
+置 pending 锁的意义在于保证状态更新任务的有序进行，避免发生混乱。
+本小节我们从性能优化的角度出发，通过解析Vue源码，对异步更新这一高效的 DOM 优化手段有了感
+性的认知。同时帮助大家进一步熟悉了 micro 与 macro 在生产中的应用，加深了对 Event Loop 的理
+解。事实上，Vue 源码中还有许多值得称道的生产实践，其设计模式与编码细节都值得我们去细细品
+味。对这个话题感兴趣的同学，课后不妨移步 Vue运行机制解析 进行探索。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>至此，我们的 DOM 优化之路才走完了一半。
+以上我们都在讨论“如何减少 DOM 操作”的话题。这个话题比较宏观——DOM 操作也分很多种，它们带
+来的变化各不相同。有的操作只触发重绘，这时我们的性能损耗就小一些；有的操作会触发回流，这时
+我们更“肉疼”一些。那么如何理解回流与重绘，如何借助这些理解去提升页面渲染效率呢？
+结束了 JS 的征程，我们下面就走进 CSS 的世界一窥究竟。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/nature/千方百计——Event Loop 与异步更新策略.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html" class="prev">
+        八、对症下药—— DOM 优化原理与基本实践
+      </a></span> <span class="next"><a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html">
+        十、最后一击——回流（Reflow）与重绘（Repaint）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/18.ba229207.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

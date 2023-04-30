@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>十一、优化首屏体验——Lazy-Load 初探 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/5.387bf8e2.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>性能优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/nature/性能优化知识体系.html" class="sidebar-link">知识体系： 从一道面试题说起</a></li><li><a href="/about/nature/webpack性能调优与Gzip原理.html" class="sidebar-link">一、webpack 性能调优与 Gzip 原理</a></li><li><a href="/about/nature/图片优化-质量与性能的博弈.html" class="sidebar-link">二、图片优化——质量与性能的博弈</a></li><li><a href="/about/nature/浏览器缓存机制介绍与缓存策略剖析.html" class="sidebar-link">三、浏览器缓存机制介绍与缓存策略剖析</a></li><li><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html" class="sidebar-link">四、本地存储——从 Cookie 到 Web Storage、IndexDB</a></li><li><a href="/about/nature/CDN 的缓存与回源机制解析.html" class="sidebar-link">五、CDN 的缓存与回源机制解析</a></li><li><a href="/about/nature/服务端渲染的探索与实践.html" class="sidebar-link">六、服务端渲染的探索与实践</a></li><li><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html" class="sidebar-link">七、知己知彼——解锁浏览器背后的运行机制</a></li><li><a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html" class="sidebar-link">八、对症下药—— DOM 优化原理与基本实践</a></li><li><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html" class="sidebar-link">九、千方百计——Event Loop 与异步更新策略</a></li><li><a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html" class="sidebar-link">十、最后一击——回流（Reflow）与重绘（Repaint）</a></li><li><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html" class="active sidebar-link">十一、优化首屏体验——Lazy-Load 初探</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html#lazy-load-初相见" class="sidebar-link">Lazy-Load 初相见</a></li><li class="sidebar-sub-header"><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html#一起写一个-lazy-load-吧" class="sidebar-link">一起写一个 Lazy-Load 吧！</a></li><li class="sidebar-sub-header"><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/about/nature/事件的节流throttle与防抖debounce.html" class="sidebar-link">十二、事件的节流（throttle）与防抖（debounce）</a></li><li><a href="/about/nature/Performance、LightHouse 与性能 API.html" class="sidebar-link">十三、Performance、LightHouse 与性能 API</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="十一、优化首屏体验-lazy-load-初探"><a href="#十一、优化首屏体验-lazy-load-初探" class="header-anchor">#</a> 十一、优化首屏体验——Lazy-Load 初探</h1> <p>首先要告诉大家的是，截止到上个章节，我们需要大家绞尽脑汁去理解的“硬核”操作基本告一段落了。
+从本节开始，我们会一起去实现一些必知必会、同时难度不大的常用优化手段。
+这部分内容不难，但很关键。尤其是近期有校招或跳槽需求的同学，还请务必对这部分内容多加留心，
+说不定下一次的面试题里就有它们的身影。</p> <h2 id="lazy-load-初相见"><a href="#lazy-load-初相见" class="header-anchor">#</a> Lazy-Load 初相见</h2> <p>Lazy-Load，翻译过来是“懒加载”。它是针对图片加载时机的优化：在一些图片量比较大的网站（比如
+电商网站首页，或者团购网站、小游戏首页等），如果我们尝试在用户打开页面的时候，就把所有的图
+片资源加载完毕，那么很可能会造成白屏、卡顿等现象，因为图片真的太多了，一口气处理这么多任
+务，浏览器做不到啊！
+但我们再想，用户真的需要这么多图片吗？不对，用户点开页面的瞬间，呈现给他的只有屏幕的一部分
+（我们称之为首屏）。只要我们可以在页面打开的时候把首屏的图片资源加载出来，用户就会认为页面
+是没问题的。至于下面的图片，我们完全可以等用户下拉的瞬间再即时去请求、即时呈现给他。这样一
+来，性能的压力小了，用户的体验却没有变差——这个延迟加载的过程，就是 Lazy-Load。
+现在我们打开掘金首页：
+<img src="/assets/img/youhua44.43b49fe1.png">
+大家留意一栏文章右侧可能会出现的图片，这里咱们给个特写：
+<img src="/assets/img/youhua45.a800cee2.png">
+大家现在以尽可能快的速度，疯狂向下拉动页面。发现什么？是不是发现我们图示的这个图片的位置，
+会出现闪动——有时候我们明明已经拉到目标位置了，文字也呈现完毕了，图片却慢半拍才显示出来。
+这是因为，掘金首页也采用了懒加载策略。当我们的页面并未滚动至包含图片的 div 元素所在的位置
+时，它的样式是这样的：
+<img src="/assets/img/youhua46.38e32de8.png">
+我们把代码提出来看一下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;div data-v-b2db8566=&quot;&quot;
+  data-v-009ea7bb=&quot;&quot;
+  data-v-6b46a625=&quot;&quot;
+  data-src=&quot;https://user-gold-cdn.xitu.io/2018/9/27/16619f449ee24252?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1&quot;
+  class=&quot;lazy thumb thumb&quot;
+  style=&quot;background-image: none; background-size: cover;&quot;&gt;
+&lt;/div&gt;
+</code></pre></div><p>我们注意到 style 内联样式中，背景图片设置为了 none。也就是说这个 div 是没有内容的，它只起到一
+个占位的作用。
+这个“占位”的概念，在这个例子里或许体现得不够直观。最直观的应该是淘宝首页的 HTML Preview 效
+果：
+<img src="/assets/img/youhua47.a6ad579d.png">
+我们看到，这个还没来得及被图片填充完全的网页，是用大大小小的空 div 元素来占位的。掘金首页也
+是如此。
+一旦我们通过滚动使得这个 div 出现在了可见范围内，那么 div 元素的内容就会发生变化，呈现如下的
+内容：
+<img src="/assets/img/youhua48.e26bb766.png">
+我们给 style 一个特写：</p> <div class="language- extra-class"><pre class="language-text"><code>style=&quot;background-image: url(&amp;quot;https://user-goldcdn.
+xitu.io/2018/9/27/16619f449ee24252?
+imageView2/1/w/120/h/120/q/85/format/webp/interlace/1&amp;quot;); background-size:
+cover;&quot;
+</code></pre></div><p>可以看出，style 内联样式中的背景图片属性从 none 变成了一个在线图片的 URL。也就是说，出现在
+可视区域的瞬间，div 元素的内容被即时地修改掉了——它被写入了有效的图片 URL，于是图片才得以
+呈现。这就是懒加载的实现思路。</p> <h2 id="一起写一个-lazy-load-吧"><a href="#一起写一个-lazy-load-吧" class="header-anchor">#</a> 一起写一个 Lazy-Load 吧！</h2> <p>基于上面的实现思路，我们完全可以手动实现一个属于自己的 Lazy-Load。
+（此处敲黑板划重点，Lazy-Load 的思路及实现方式为大厂面试常考题，还望诸位同学引起重视）
+首先新建一个空项目，目录结构如下：
+<img src="/assets/img/youhua49.907fb6ae.png">
+大家可以往 images 文件夹里塞入各种各样自己喜欢的图片。
+我们在 index.html 中，为这些图片预置 img 标签：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+  &lt;title&gt;Lazy-Load&lt;/title&gt;
+  &lt;style&gt;
+    .img {
+      width: 200px;
+      height: 200px;
+      background-color: gray;
+    }
+
+    .pic {
+      // 必要的img样式
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      // 注意我们并没有为它引入真实的src
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/1.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/2.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/3.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/4.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/5.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/6.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/7.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/8.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/9.png&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;img&quot;&gt;
+      &lt;img class=&quot;pic&quot; alt=&quot;加载中&quot; data-src=&quot;./images/10.png&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></div><p>在懒加载的实现中，有两个关键的数值：一个是当前可视区域的高度，另一个是元素距离可视区域顶部
+的高度。
+当前可视区域的高度， 在和现代浏览器及 IE9 以上的浏览器中，可以用 window.innerHeight 属性获
+取。在低版本 IE 的标准模式中，可以用 document.documentElement.clientHeight 获取，这里我们
+兼容两种情况：</p> <div class="language- extra-class"><pre class="language-text"><code>const viewHeight = window.innerHeight || document.documentElement.clientHeight
+</code></pre></div><p>而元素距离可视区域顶部的高度，我们这里选用 getBoundingClientRect() 方法来获取返回元素的大小
+及其相对于视口的位置。对此 MDN 给出了非常清晰的解释：
+该方法的返回值是一个 DOMRect 对象，这个对象是由该元素的 getClientRects() 方法返回的一组
+矩形的集合, 即：是与该元素相关的 CSS 边框集合 。
+DOMRect 对象包含了一组用于描述边框的只读属性——left、top、right 和 bottom，单位为像
+素。除了 width 和 height 外的属性都是相对于视口的左上角位置而言的。
+其中需要引起我们注意的就是 left、top、right 和 bottom，它们对应到元素上是这样的：
+<img src="/assets/img/youhua50.1312a52d.png">
+可以看出，top 属性代表了元素距离可视区域顶部的高度，正好可以为我们所用！
+Lazy-Load 方法开工啦！</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;
+  // 获取所有的图片标签
+  const imgs = document.getElementsByTagName('img')
+  // 获取可视区域的高度
+  const viewHeight = window.innerHeight ||
+    document.documentElement.clientHeight
+  // num用于统计当前显示到了哪一张图片，避免每次都从第一张图片开始检查是否露出
+  let num = 0
+  function lazyload() {
+    for (let i = num; i &lt; imgs.length; i++) {
+      // 用可视区域高度减去元素顶部距离可视区域顶部的高度
+      let distance = viewHeight - imgs[i].getBoundingClientRect().top
+      // 如果可视区域高度大于等于元素顶部距离可视区域顶部的高度，说明元素露出
+      if (distance &gt;= 0) {
+        // 给元素写入真实的src，展示图片
+        imgs[i].src = imgs[i].getAttribute('data-src')
+        // 前i张图片已经加载完毕，下次从第i+1张开始检查是否露出
+        num = i + 1
+      }
+    }
+  }
+  // 监听Scroll事件
+  window.addEventListener('scroll', lazyload, false);
+&lt;/script&gt;
+</code></pre></div><h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本节我们实现出了一个最基本的懒加载功能。但是大家要注意一点：这个 scroll 事件，是一个危险的事
+件——它太容易被触发了。试想，用户在访问网页的时候，是不是可以无限次地去触发滚动？尤其是一
+个页面死活加载不出来的时候，疯狂调戏鼠标滚轮（或者浏览器滚动条）的用户可不在少数啊！
+再回头看看我们上面写的代码。按照我们的逻辑，用户的每一次滚动都将触发我们的监听函数。函数执
+行是吃性能的，频繁地响应某个事件将造成大量不必要的页面计算。因此，我们需要针对那些有可能被
+频繁触发的事件作进一步地优化。这里就引出了我们下一节的两位主角——throttle 与 debounce。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/nature/优化首屏体验——Lazy-Load 初探.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html" class="prev">
+        十、最后一击——回流（Reflow）与重绘（Repaint）
+      </a></span> <span class="next"><a href="/about/nature/事件的节流throttle与防抖debounce.html">
+        十二、事件的节流（throttle）与防抖（debounce）
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/5.387bf8e2.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

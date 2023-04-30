@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>监控及告警 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/39.887115b5.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>日志及监控</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/LOGAndMonitor/日志及上报.html" class="sidebar-link">日志及上报</a></li><li><a href="/about/LOGAndMonitor/监控及告警.html" class="active sidebar-link">监控及告警</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#监控" class="sidebar-link">监控</a></li><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#sentry" class="sidebar-link">Sentry</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#实时错误追踪、捕获、记录和分析" class="sidebar-link">实时错误追踪、捕获、记录和分析</a></li><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#自定义异常处理、性能监控、事件过滤、集成第三方工具等" class="sidebar-link">自定义异常处理、性能监控、事件过滤、集成第三方工具等</a></li><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#sentry的dsn是什么及如何配置" class="sidebar-link">sentry的dsn是什么及如何配置</a></li><li class="sidebar-sub-header"><a href="/about/LOGAndMonitor/监控及告警.html#sentry原理" class="sidebar-link">sentry原理</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="监控及告警"><a href="#监控及告警" class="header-anchor">#</a> 监控及告警</h1> <h2 id="监控"><a href="#监控" class="header-anchor">#</a> 监控</h2> <p>在前端应用中添加监控器，例如 PerformanceObserver、MutationObserver 等，来捕获页面性能、用户行为等信息，并记录日志。这种方式需要了解监控器的使用方法和原理，需要一定的开发经验和技能。</p> <div class="language- extra-class"><pre class="language-text"><code>const observer = new PerformanceObserver((list) =&gt; {
+  for (const entry of list.getEntries()) {
+    console.log(entry.name + ' ' + entry.startTime);
+    // 记录日志或将错误信息发送到服务器
+  }
+});
+
+observer.observe({ entryTypes: ['longtask'] });
+</code></pre></div><p>使用第三方监控工具，例如 Sentry、ELK、LogRocket 等，它们可以通过不同的方式捕获前端应用程序的运行日志，并提供可视化的监控面板和报告。</p> <h2 id="sentry"><a href="#sentry" class="header-anchor">#</a> Sentry</h2> <h3 id="实时错误追踪、捕获、记录和分析"><a href="#实时错误追踪、捕获、记录和分析" class="header-anchor">#</a> 实时错误追踪、捕获、记录和分析</h3> <p>Sentry 是一个开源的实时错误追踪平台，可以帮助开发人员捕获、记录和分析应用程序中的异常和错误。Sentry 支持多种编程语言和平台，包括 JavaScript、Python、Java、Ruby、Go、PHP、.NET 等。
+下面以 JavaScript 为例，演示如何在项目中集成 Sentry 并上报异常：</p> <ol><li><p>在 Sentry 官网注册账号并创建项目，获取项目的 DSN（Data Source Name）。</p></li> <li><p>安装 Sentry 的 JavaScript SDK：</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>npm install @sentry/browser
+</code></pre></div><ol start="3"><li>在项目中引入 Sentry SDK，并初始化：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'YOUR_DSN',
+  // 其他配置选项
+});
+</code></pre></div><ol start="4"><li>在需要捕获异常的代码块中，使用 Sentry.captureException 方法捕获异常并上报：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>try {
+  // 可能会抛出异常的代码
+} catch (error) {
+  Sentry.captureException(error);
+}
+</code></pre></div><p>如果需要上报自定义消息，可以使用 Sentry.captureMessage 方法：</p> <div class="language- extra-class"><pre class="language-text"><code>Sentry.captureMessage('Something went wrong');
+</code></pre></div><ol start="5"><li>在代码中使用 Sentry.setUser 方法设置用户信息：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>Sentry.setUser({
+  email: 'user@example.com',
+  id: '1234',
+  username: 'username',
+});
+</code></pre></div><ol start="6"><li>在需要调试的代码中，使用 Sentry.addBreadcrumb 方法添加面包屑（Breadcrumb）：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>Sentry.addBreadcrumb({
+  category: 'navigation',
+  message: 'User clicked on button',
+  data: {
+    page: 'homepage',
+    button: 'login',
+  },
+});
+</code></pre></div><p>Sentry 还提供了很多其他功能，例如自定义异常处理、性能监控、事件过滤、集成第三方工具等。开发人员可以根据实际需求选择并配置相应的功能。
+下面我们再详细说明一下上述Sentry的其他功能，并代码演示，例如自定义异常处理、性能监控、事件过滤、集成第三方工具</p> <h3 id="自定义异常处理、性能监控、事件过滤、集成第三方工具等"><a href="#自定义异常处理、性能监控、事件过滤、集成第三方工具等" class="header-anchor">#</a> 自定义异常处理、性能监控、事件过滤、集成第三方工具等</h3> <ol><li>自定义异常处理
+除了捕获和上报 JavaScript 异常，Sentry 还提供了自定义异常处理的功能，开发人员可以根据实际需求在代码中捕获和处理异常，并将其上报到 Sentry 中。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+
+function handleException() {
+  try {
+    // 可能会抛出异常的代码
+  } catch (error) {
+    Sentry.withScope(scope =&gt; {
+      scope.setTag('customTag', 'tagValue');
+      scope.setExtra('customExtra', 'extraValue');
+      Sentry.captureException(error);
+    });
+  }
+}
+</code></pre></div><p>在上面的代码中，使用 Sentry.withScope 方法设置额外的标签和数据，然后使用 Sentry.captureException 方法捕获和上报异常。这样可以更好地区分不同类型的异常和定位问题。</p> <ol start="2"><li>性能监控
+除了异常追踪，Sentry 还提供了性能监控的功能，可以帮助开发人员监控应用程序的性能指标，例如页面加载时间、API 请求时间等。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'YOUR_DSN',
+  tracesSampleRate: 1.0,
+});
+
+function performTask() {
+  const transaction = Sentry.startTransaction({
+    op: 'task',
+    name: 'Task Name',
+  });
+
+  // 进行任务的代码
+
+  transaction.finish();
+}
+</code></pre></div><p>在上面的代码中，使用 Sentry.startTransaction 方法创建一个事务（Transaction），然后在任务完成时使用 transaction.finish() 方法结束事务，并将性能指标上报到 Sentry 中。通过设置 tracesSampleRate 参数，可以控制上报性能数据的采样率。</p> <ol start="3"><li>事件过滤
+Sentry 还提供了事件过滤的功能，可以帮助开发人员排除一些不必要的事件，例如调试信息、健康检查等。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'YOUR_DSN',
+  beforeSend(event, hint) {
+    if (event.tags &amp;&amp; event.tags.noisy) {
+      return null;
+    }
+    if (event.message &amp;&amp; event.message.includes('debug')) {
+      return null;
+    }
+    return event;
+  },
+});
+</code></pre></div><p>在上面的代码中，使用 beforeSend 方法过滤不需要上报的事件。例如，如果事件中包含 noisy 标签，则不上报；如果事件中包含 debug 关键字，则不上报。</p> <ol start="4"><li>集成第三方工具
+Sentry 还支持与许多第三方工具进行集成，例如 Slack、GitHub、Jira 等。开发人员可以在 Sentry 控制台中配置集成，然后在代码中使用相应的 SDK 进行操作。</li></ol> <p>以 Slack 集成为例：</p> <ul><li><p>在 Sentry 控制台中创建 Slack 集成。</p></li> <li><p>安装 @sentry/integrations 和 @slack/webhook：</p></li> <li><p>在代码中引入 @sentry/integrations 和 @slack/webhook，并配置：</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+import { Integrations } from '@sentry/integrations';
+import { IncomingWebhook } from '@slack/webhook';
+
+Sentry.init({
+  dsn: 'YOUR_DSN',
+  integrations: [
+    new Integrations.OnUncaughtException(),
+    new Integrations.OnUnhandledRejection(),
+  ],
+  beforeSend(event) {
+    if (event.exception) {
+      event.exception.values[0].value += ' (sent via Slack)';
+    }
+    return event;
+  },
+});
+
+const webhook = new IncomingWebhook('YOUR_SLACK_WEBHOOK_URL');
+Sentry.addGlobalEventProcessor(async event =&gt; {
+  if (event.user) {
+    const user = await fetchUser(event.user);
+    event.user = user;
+  }
+  return event;
+});
+</code></pre></div><ul><li><p>在 beforeSend 方法中对事件进行处理，例如添加标记和数据。</p></li> <li><p>在 Sentry.addGlobalEventProcessor 方法中对事件进行处理，例如将用户 ID 转换为用户名。</p></li> <li><p>在需要发送通知的地方调用 webhook.send 方法发送消息到 Slack。</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>try {
+  // 可能会抛出异常的代码
+} catch (error) {
+  Sentry.captureException(error);
+  webhook.send({
+    text: 'An error occurred!',
+  });
+}
+</code></pre></div><p>通过以上操作，就可以将 Sentry 与 Slack 集成起来，实现错误通知和处理。其他第三方工具的集成方法类似，具体可以参考 Sentry 的文档。</p> <p>总的来说，Sentry 提供了丰富的功能和灵活的配置，可以帮助开发人员更好地追踪和处理应用程序中的错误和性能问题，提高应用程序的可靠性和用户体验。</p> <h3 id="sentry的dsn是什么及如何配置"><a href="#sentry的dsn是什么及如何配置" class="header-anchor">#</a> sentry的dsn是什么及如何配置</h3> <p>Sentry 中的 dsn 是指数据源名称（Data Source Name），它是用于 Sentry 与项目之间进行通信的凭据，包含了 Sentry 项目的唯一标识符和认证信息等信息。在 Sentry 中，每个项目都有一个唯一的 dsn。</p> <p>dsn 的值通常由以下几部分组成：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;PROTOCOL&gt;://&lt;PUBLIC_KEY&gt;:&lt;SECRET_KEY&gt;@&lt;HOST&gt;/&lt;PATH&gt;/&lt;PROJECT_ID&gt;
+</code></pre></div><p>其中：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;PROTOCOL&gt;：协议，默认为 https。
+&lt;PUBLIC_KEY&gt;：公钥，用于认证。
+&lt;SECRET_KEY&gt;：私钥，用于认证。
+&lt;HOST&gt;：Sentry 服务器的主机名。
+&lt;PATH&gt;：可选，指定 Sentry API 的路径。
+&lt;PROJECT_ID&gt;：项目 ID，用于唯一标识 Sentry 中的项目。
+</code></pre></div><p>要使用 Sentry，您需要创建一个 Sentry 项目并获取该项目的 dsn。您可以在 Sentry 中创建项目后，从项目的设置页面复制 dsn。例如，一个 dsn 的值可能类似于以下内容：</p> <div class="language- extra-class"><pre class="language-text"><code>https://abc123@sentry.io/12345
+</code></pre></div><p>在配置 Sentry 时，您需要将该 dsn 值传递给 Sentry.init() 方法。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+  dsn: 'https://abc123@sentry.io/12345',
+  // 其他配置
+});
+</code></pre></div><p>在此示例中，我们将 dsn 值作为 Sentry.init() 方法的一个配置选项进行传递。Sentry 会使用此 dsn 值来初始化与 Sentry 服务器之间的通信。请注意，此示例中的 dsn 值仅供示范用途，您需要替换为自己的 Sentry 项目的 dsn 值。</p> <h3 id="sentry原理"><a href="#sentry原理" class="header-anchor">#</a> sentry原理</h3> <h4 id="原理"><a href="#原理" class="header-anchor">#</a> 原理</h4> <p>Javascript代码发生错误后，Javascript引擎会抛出一个Error对象，并触发window.onerror事件，Sentry正是对window.onerror进行重写，实现错误监控的逻辑，并添加了很多信息帮助错误定位，并对错误进行滚跨浏览器的兼容等</p> <ol><li><p>window.onerror
+捕获基本的js错误，但不能获取到资源加载失败的情况，必须使用window.addEventListener('error')才行</p></li> <li><p>Promise
+Promise 如果reject没被catch的话，不能被window.onerror捕获，需要使用unhandledrejection捕获</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>window.addEventListener(&quot;unhandledrejection&quot;, event =&gt; {
+  console.warn(`UNHANDLED PROMISE REJECTION: ${event.reason}`);
+});
+</code></pre></div><ol start="3"><li>Vue的Vue.config.errorHandler
+Sentry对Vue.config.errorHandler进行重写</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function vuePlugin(Raven, Vue) {
+  var _oldOnError = Vue.config.errorHandler;
+  Vue.config.errorHandler = function VueErrorHandler(error, vm, info) {
+    // 上报
+    Raven.captureException(error, {
+      extra: metaData
+    });
+
+    if (typeof _oldOnError === 'function') {
+      // 为什么这么做？
+      _oldOnError.call(this, error, vm, info);
+    }
+  };
+}
+module.exports = vuePlugin;
+</code></pre></div><ul><li>React的ErrorBoundary</li></ul> <div class="language- extra-class"><pre class="language-text"><code>/**
+* A ErrorBoundary component that logs errors to Sentry.
+* Requires React &gt;= 16
+*/
+declare class ErrorBoundary extends React.Component&lt;ErrorBoundaryProps, ErrorBoundaryState&gt; {
+    state: ErrorBoundaryState;
+    componentDidCatch(error: Error, { componentStack }: React.ErrorInfo): void;
+    componentDidMount(): void;
+    componentWillUnmount(): void;
+    resetErrorBoundary: () =&gt; void;
+    render(): React.ReactNode;
+}
+
+// 真实上报的地方
+ErrorBoundary.prototype.componentDidCatch = function (error, _a) {
+  var _this = this;
+  var componentStack = _a.componentStack;
+  // 获取到配置的props
+  var _b = this.props, beforeCapture = _b.beforeCapture, onError = _b.onError, showDialog = _b.showDialog, dialogOptions = _b.dialogOptions;
+  withScope(function (scope) {
+    // 上报之前做一些处理，相当于axios的请求拦截器
+    if (beforeCapture) {
+      beforeCapture(scope, error, componentStack);
+    }
+    // 上报
+    var eventId = captureException(error, { contexts: { react: { componentStack: componentStack } } });
+    // 开发者的回调
+    if (onError) {
+      onError(error, componentStack, eventId);
+    }
+    // 是否显示sentry的错误反馈组件（也是一种收集错误的方式）
+    if (showDialog) {
+      showReportDialog(__assign(__assign({}, dialogOptions), { eventId: eventId }));
+    }
+    // componentDidCatch is used over getDerivedStateFromError
+    // so that componentStack is accessible through state.
+    _this.setState({ error: error, componentStack: componentStack, eventId: eventId });
+  });
+};
+</code></pre></div><ol start="4"><li>请求
+Sentry不能捕获异步操作、接口请求中的错误，比如404、500等，此时需要通过Sentry.caputureException()主动上报</li></ol> <ul><li>XHR通过拦截send和open</li> <li>fetch通过拦截整个方法</li> <li>axios通过请求/响应拦截器</li></ul> <h4 id="接入sourcemap"><a href="#接入sourcemap" class="header-anchor">#</a> 接入SourceMap</h4> <p>使用Sentry的webpack插件配置sourceMap，在构建的时候自动上传到Sentry，如果不上传SourceMap有些问题不好定位<br>
+Sentry一共提供了三种上传source map的方式</p> <ol><li>Sentry-cli</li></ol> <p><a href="https://docs.sentry.io/platforms/javascript/sourcemaps/#webpack">Sentry-cli</a></p> <ol start="2"><li>使用API上传</li></ol> <p><a href="https://docs.sentry.io/api/">使用API上传</a></p> <ol start="3"><li>使用webpack plugins</li></ol> <ul><li>安装@sentry/webpack-plugin</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm install --save-dev @sentry/webpack-plugin
+</code></pre></div><ul><li>项目根目录添加.sentryclirc文件</li></ul> <div class="language- extra-class"><pre class="language-text"><code>[auth]
+token = ef5b031a00964f3c8f8ccbca07bb03c1d950be4b33f24ff
+
+[defaults]
+url = https://sentry-monitor.xxx.com/
+org = xxx
+project = xxx
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>token：sentry的Auth Token，settings -&gt; account -&gt; api -&gt; auth-tokens
+url：sentry地址
+org：组织settings -&gt; settings/organization-slug
+project：项目名称
+</code></pre></div><ul><li>配置webpack</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const SentryWebpackPlugin = require(&quot;@sentry/webpack-plugin&quot;);
+ 
+module.exports = {
+  // other webpack configuration
+  devtool: 'source-map',
+  // 将 Webpack 插件设置为最后运行的插件  否则插件收到的 source maps 可能不是最终的
+  plugins: [
+    new SentryWebpackPlugin({
+      release:&quot;v1.0.1&quot;,
+      include: &quot;.&quot;, 
+      ignore: [&quot;node_modules&quot;, &quot;webpack.config.js&quot;],
+      configFile: &quot;sentry.properties&quot;,
+    }),
+  ],
+};
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>release：每次上传sourcemap是一次release的过程，如果init时没有配置release属性，sentry会自动生成一个随机数作为release版本；配置的话需要init和webpack配置中的一致
+include：指定路径让sentry-cli来检测有没有.map与.js文件，如果有就会上传到sentry
+ignore: 忽略文件夹或文件不要被检测
+configFile: 用来替代第二步的.sentryclirc文件 需要有对应的文件 默认不配置即可
+</code></pre></div><p>在sentry上就会有对应项目的 Source Map 文件；（在settings -&gt; projects -&gt; xxx -&gt; Source Maps）</p> <ol start="4"><li>@sentry/webpack-plugin原理</li></ol> <p><a href="https://github.com/getsentry/sentry-webpack-plugin">@sentry/webpack-plugin原理</a></p> <p>在webpack的afterEmit钩子（在生成文件到output目录之后执行）中获取打包后的文件，过滤出文件类型为/.js$|.map$/结尾的文件上传到对应的sentry服务器</p> <div class="language- extra-class"><pre class="language-text"><code>// upload sourcemaps
+apply(compiler) {
+  // afterEmit在生成文件到output目录之后执行
+  compiler.hooks.afterEmit.tapAsync(this.name, async (compilation, callback) =&gt; {
+    const files = this.getFiles(compilation);
+    try {
+      await this.createRelease();
+      await this.uploadFiles(files);
+      console.info('\n\u001b[32mUpload successfully.\u001b[39m\n');
+    } catch (error) {
+      // todo
+    }
+    callback(null);
+  });
+}
+ // 获取需要上传的文件
+ getFiles(compilation) {
+   // 通过 compilation.assets 获取我们需要的文件信息，格式信息
+      // compilation.assets {
+      // 'bundle.js': SizeOnlySource { _size: 212 },
+      // 'bundle.js.map': SizeOnlySource { _size: 162 }
+      // }
+  return Object.keys(compilation.assets)
+    .map((name) =&gt; {
+    if (this.isIncludeOrExclude(name)) {
+      return { name, filePath: this.getAssetPath(compilation, name) };
+    }
+    return null;
+  })
+    .filter(Boolean);
+}
+ // 获取文件的绝对路径
+ getAssetPath(compilation, name) {
+    return path.join(compilation.getPath(compilation.compiler.outputPath), name.split('?')[0]);
+ }
+ // 获取文件的绝对路径
+ getAssetPath(compilation, name) {
+    return path.join(compilation.getPath(compilation.compiler.outputPath), name.split('?')[0]);
+ }
+ // 上传文件
+ async uploadFile({ filePath, name }) {
+   console.log(filePath);
+   try {
+     await request({
+       url: `${this.sentryReleaseUrl()}/${this.release}/files/`, // 上传的sentry路径
+       method: 'POST',
+       auth: {
+         bearer: this.apiKey,
+       },
+       headers: {},
+       formData: {
+         file: fs.createReadStream(filePath),
+         name: this.filenameTransform(name),
+       },
+     });
+   } catch (e) {
+     console.error(`uploadFile failed ${filePath}`);
+   }
+ }
+</code></pre></div><p>webpack钩子</p> <ul><li>done: 编译完成后</li> <li>beforeRun: 在编译器执行前</li> <li>run: 在编译器开始读取记录前执行</li> <li>emit: 在生成文件到output目录之前执行</li> <li>afterEmit: 在生成文件到output目录之后执行</li> <li>compilation: 创建compilation后</li> <li>beforeCompile: 在编译前</li> <li>compile: 创建compilation前</li> <li>make:编译完成前</li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/LOGAndMonitor/监控及告警.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/LOGAndMonitor/日志及上报.html" class="prev">
+        日志及上报
+      </a></span> <span class="next"><a href="/about/chrome/chrome插件开发.html">
+        chrome插件开发
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/39.887115b5.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

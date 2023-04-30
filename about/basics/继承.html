@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>继承 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/63.be538378.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/basics/dsBridge.html" class="sidebar-link">JSBridge通信过程</a></li><li><a href="/about/basics/事件流.html" class="sidebar-link">事件流</a></li><li><a href="/about/basics/跨域.html" class="sidebar-link">跨域</a></li><li><a href="/about/basics/generator.html" class="sidebar-link">generator</a></li><li><a href="/about/basics/循环相关函数.html" class="sidebar-link">循环相关函数</a></li><li><a href="/about/basics/Object.html" class="sidebar-link">Object</a></li><li><a href="/about/basics/map.html" class="sidebar-link">map&amp;&amp;set</a></li><li><a href="/about/basics/数据类型.html" class="sidebar-link">数据类型</a></li><li><a href="/about/basics/数组操作.html" class="sidebar-link">数组操作</a></li><li><a href="/about/basics/new的过程.html" class="sidebar-link">new 的过程</a></li><li><a href="/about/basics/原型链.html" class="sidebar-link">原型链</a></li><li><a href="/about/basics/闭包.html" class="sidebar-link">作用域和闭包</a></li><li><a href="/about/basics/异步.html" class="sidebar-link">异步</a></li><li><a href="/about/brower/事件循环.html" class="sidebar-link">事件循环</a></li><li><a href="/about/brower/渲染过程.html" class="sidebar-link">渲染过程</a></li><li><a href="/about/basics/arguments.html" class="sidebar-link">arguments 参数传递</a></li><li><a href="/about/basics/promise.html" class="sidebar-link">promise</a></li><li><a href="/about/basics/ts学习.html" class="sidebar-link">ts 学习</a></li><li><a href="/about/basics/垃圾回收机制.html" class="sidebar-link">垃圾回收机制</a></li><li><a href="/about/basics/模块化.html" class="sidebar-link">API</a></li><li><a href="/about/basics/继承.html" class="active sidebar-link">继承</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/basics/继承.html#继承的几种方式以及优缺点" class="sidebar-link">继承的几种方式以及优缺点</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/basics/继承.html#原型链继承" class="sidebar-link">原型链继承</a></li><li class="sidebar-sub-header"><a href="/about/basics/继承.html#构造函数继承" class="sidebar-link">构造函数继承</a></li><li class="sidebar-sub-header"><a href="/about/basics/继承.html#组合继承" class="sidebar-link">组合继承</a></li><li class="sidebar-sub-header"><a href="/about/basics/继承.html#原型式继承" class="sidebar-link">原型式继承</a></li><li class="sidebar-sub-header"><a href="/about/basics/继承.html#寄生式继承" class="sidebar-link">寄生式继承</a></li></ul></li></ul></li><li><a href="/about/basics/js事件循环机制和node事件循环机制.html" class="sidebar-link">js事件循环机制和node事件循环机制</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="继承"><a href="#继承" class="header-anchor">#</a> 继承</h1> <h2 id="继承的几种方式以及优缺点"><a href="#继承的几种方式以及优缺点" class="header-anchor">#</a> 继承的几种方式以及优缺点</h2> <h3 id="原型链继承"><a href="#原型链继承" class="header-anchor">#</a> 原型链继承</h3> <p>原型链继承是 JavaScript 中最常用的继承方式之一，它的核心是通过将一个对象的原型指向另一个对象来实现继承。子类的实例可以访问父类的方法和属性。
+代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function Parent() {
+  this.name = 'Parent';
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child() {
+  this.name = 'Child';
+}
+
+Child.prototype = new Parent();
+
+var child = new Child();
+child.sayHello(); // 输出 &quot;Hello, I am Child&quot;
+
+</code></pre></div><p>优点：</p> <p>父类的方法和属性可以被子类共享。
+可以实现多级继承。</p> <p>缺点：</p> <p>如果父类的原型中包含引用类型的属性，子类实例会共享这些属性，可能会造成不必要的麻烦。
+无法向父类传递参数。</p> <ol><li>父类的方法和属性可以被子类共享：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Parent() {
+  this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+
+function Child() {}
+
+Child.prototype = new Parent();
+
+var child1 = new Child();
+child1.colors.push(&quot;black&quot;);
+
+var child2 = new Child();
+
+console.log(child1.colors); // 输出 [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]
+console.log(child2.colors); // 输出 [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]
+</code></pre></div><p>在上述代码中，我们定义了一个父类 Parent 和一个子类 Child。子类 Child 的原型对象是父类 Parent 的实例。然后我们创建了两个子类实例 child1 和 child2，并向 child1 实例的 colors 属性中添加了一个新元素。接着我们分别输出了 child1.colors 和 child2.colors，发现它们的值都是 [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;black&quot;]。这是因为 child1 和 child2 共享同一个原型对象，而 child1 向 colors 属性中添加了一个新元素，所以 child2 的 colors 属性也受到了影响。这种行为可能会导致意外的副作用和错误。</p> <ol start="2"><li>无法向父类传递参数：</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name;
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child() {}
+
+Child.prototype = new Parent('Parent');
+
+var child = new Child();
+child.sayHello(); // 输出 &quot;Hello, I am Parent&quot;
+</code></pre></div><p>在上述代码中，我们在创建 Child 的原型对象时，使用 new Parent('Parent') 来创建了一个 Parent 的实例，并将其赋值给了 Child 的原型对象。这样，Child 的原型对象就继承了 Parent 的属性和方法，包括 name 属性和 sayHello 方法。但是，由于我们使用 new Parent('Parent') 来创建 Parent 的实例，这个实例已经在 Parent 的构造函数中被初始化了，并且传递了参数 'Parent'，无法再向构造函数中传递其他参数。因此，在上述代码中，我们无法向 Parent 传递其他参数。</p> <h3 id="构造函数继承"><a href="#构造函数继承" class="header-anchor">#</a> 构造函数继承</h3> <p>构造函数继承是通过在子类构造函数中调用父类构造函数来实现继承的。通过使用 call 或 apply 方法，可以将父类构造函数的作用域赋给子类，使子类获得父类构造函数中的属性和方法。</p> <p>代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name || 'Parent';
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child(name) {
+  Parent.call(this, name || 'Child');
+}
+
+var child = new Child();
+child.sayHello(); // TypeError: child.sayHello is not a function
+</code></pre></div><p>优点：</p> <p>可以向父类传递参数。
+父类的属性和方法不会被子类实例共享。</p> <p>缺点：</p> <p>无法继承父类原型上的属性和方法。
+每个子类实例都会创建一个父类实例的副本，可能会造成不必要的内存浪费。</p> <ol><li>无法继承父类原型上的属性和方法：
+构造函数继承无法继承父类原型上的属性和方法的原因是因为在使用构造函数继承时，只是在子类构造函数内部调用了父类构造函数，并没有实际上将父类的原型对象赋值给子类的原型对象。因此，子类的原型对象并没有继承父类原型对象上的属性和方法。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name;
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child(name) {
+  Parent.call(this, name);
+}
+
+var child = new Child('Child');
+child.sayHello(); // TypeError: child.sayHello is not a function
+</code></pre></div><p>在上述代码中，我们定义了一个 Parent 构造函数，并在它的原型对象上增加了一个 sayHello 方法。然后，我们定义了一个 Child 构造函数，并在它的构造函数内部调用了 Parent 构造函数。这样，Child 对象就继承了 Parent 对象的属性和方法。但是，由于我们没有将 Parent 的原型对象赋值给 Child 的原型对象，因此 Child 对象无法继承 Parent 的原型对象上的属性和方法，例如上述代码中的 sayHello 方法。因此，当我们在 child 对象上调用 sayHello 方法时，会抛出一个 TypeError 错误。</p> <ol start="2"><li>每个子类实例都会创建一个父类实例的副本，可能会造成不必要的内存浪费。
+构造函数继承中，每个子类实例都会创建一个父类实例的副本的原因是因为在子类构造函数内部调用了父类构造函数，并使用 call 或 apply 方法将父类构造函数中的 this 指向子类实例。这样做的结果是，每次创建子类实例时都会创建一个新的父类实例，并将其作为子类实例的属性，这可能会造成不必要的内存浪费。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name;
+  this.colors = ['red', 'green', 'blue'];
+}
+
+function Child(name) {
+  Parent.call(this, name);
+}
+
+var child1 = new Child('Child1');
+var child2 = new Child('Child2');
+
+child1.colors.push('yellow');
+console.log(child1.colors); // [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;]
+console.log(child2.colors); // [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+</code></pre></div><p>在上述代码中，我们定义了一个 Parent 构造函数，并在其中定义了一个 colors 属性，它是一个数组。然后，我们定义了一个 Child 构造函数，并在其中调用了 Parent 构造函数。接着，我们创建了两个 Child 实例 child1 和 child2。然后，我们在 child1 实例上修改了 colors 数组，并发现 child2 实例并没有受到影响。这是因为每个 Child 实例都会创建一个新的 Parent 实例，因此它们之间不会共享父类的属性和方法，可能会造成不必要的内存浪费。</p> <h3 id="组合继承"><a href="#组合继承" class="header-anchor">#</a> 组合继承</h3> <p>组合继承是同时使用原型链继承和构造函数继承的一种方式。通过将父类构造函数的属性和方法赋给子类实例，再将父类的原型赋给子类原型，可以实现既可以访问父类原型上的属性和方法，又可以向父类传递参数。</p> <p>代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name || 'Parent';
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child(name) {
+  Parent.call(this, name || 'Child');
+}
+
+Child.prototype = new Parent();
+Child.prototype.constructor = Child;
+
+var child = new Child();
+child.sayHello(); // 输出 &quot;Hello, I am Child&quot;
+</code></pre></div><p>优点：</p> <p>既可以继承父类原型上的属性和方法，又可以向父类传递参数。
+每个子类实例都有自己的父类实例，不会共享属性和方法。</p> <p>缺点：</p> <p>父类构造函数的属性和方法会被子类实例重复创建。</p> <ol><li>父类构造函数的属性和方法会被子类实例重复创建。
+在组合继承中，因为子类构造函数中会调用父类构造函数，所以父类构造函数中定义的属性和方法会在子类构造函数中被调用并创建一份副本。同时，因为子类的原型也是指向了一个父类实例，所以父类原型中的属性和方法也被继承到了子类原型中。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>function Parent(name) {
+  this.name = name;
+}
+
+Parent.prototype.sayHello = function() {
+  console.log('Hello, I am ' + this.name);
+};
+
+function Child(name, age) {
+  Parent.call(this, name);
+  this.age = age;
+}
+
+Child.prototype = new Parent();
+Child.prototype.constructor = Child;
+
+var child1 = new Child('Tom', 10);
+var child2 = new Child('Jerry', 12);
+
+console.log(child1.sayHello === child2.sayHello); // false
+</code></pre></div><p>在上面的示例中，我们定义了一个 Parent 构造函数和一个 Child 构造函数，并在 Child 构造函数中调用了 Parent 构造函数，实现了对父类构造函数的继承。然后将 Child 的原型指向一个 Parent 的实例，实现对父类原型的继承。最后创建了两个 Child 的实例，并比较了它们的 sayHello 方法是否相等。由于每个实例都会创建一份副本，因此比较结果为 false。</p> <p>为了解决这个问题，可以使用 ES6 中的 class 语法糖，它可以更简洁地实现继承，而且不会出现父类构造函数属性和方法重复创建的问题。</p> <h3 id="原型式继承"><a href="#原型式继承" class="header-anchor">#</a> 原型式继承</h3> <p>原型式继承是通过创建一个临时构造函数来实现继承的。通过将父类的原型对象赋给临时构造函数的原型，然后返回一个新的实例对象，可以实现继承。</p> <p>代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function createObj(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+}
+
+var parent = {
+  name: 'Parent',
+  sayHello: function() {
+    console.log('Hello, I am ' + this.name);
+  }
+};
+
+var child = createObj(parent);
+child.name = 'Child';
+child.sayHello(); // 输出 &quot;Hello, I am Child&quot;
+</code></pre></div><p>优点：</p> <p>可以方便地实现对象之间的继承关系。</p> <p>缺点：</p> <p>父类的引用类型属性会被所有子类实例共享。
+无法向父类传递参数。</p> <ol><li>父类的引用类型属性会被所有子类实例共享及无法向父类传递参数
+原型式继承是通过复制一个对象来实现继承的，其本质上是一种对现有对象的浅拷贝。具体而言，通过创建一个新的对象作为新的子类实例，并将该对象的原型指向一个现有的父类对象来实现继承。由于这个新对象的原型是父类对象，所以它能够访问到父类对象的所有属性和方法。但是，由于子类实例共享一个原型对象，因此父类的引用类型属性会被所有子类实例共享。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>var parent = {
+  name: 'Parent',
+  colors: ['red', 'green', 'blue']
+};
+
+var child1 = Object.create(parent);
+var child2 = Object.create(parent);
+
+child1.colors.push('yellow');
+console.log(child1.colors); // [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;]
+console.log(child2.colors); // [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;]
+</code></pre></div><p>在上述代码中，我们创建了一个 parent 对象，它包含一个 colors 属性，是一个数组。然后，我们使用 Object.create 方法创建了两个新的对象 child1 和 child2，并将它们的原型都指向 parent 对象。接着，我们在 child1 对象上修改了 colors 数组，并发现 child2 对象也受到了影响，因为它们都共享了同一个 parent 对象。这是因为在原型式继承中，子类实例和父类对象之间的继承关系是通过原型链来实现的，因此所有子类实例都共享同一个原型对象，从而共享了父类的引用类型属性。</p> <p>原型式继承也无法向父类传递参数，因为它是通过复制一个现有的对象来实现继承的，无法像构造函数继承那样向父类传递参数。</p> <h3 id="寄生式继承"><a href="#寄生式继承" class="header-anchor">#</a> 寄生式继承</h3> <p>寄生式继承是在原型式继承的基础上，增强了对象，即在原型式继承的基础上添加一些属性或方法，然后返回一个新的对象。</p> <p>优点：</p> <p>可以方便地实现对象之间的继承关系。
+可以增强对象，使得它们具有更多的功能。</p> <p>缺点：</p> <p>父类的引用类型属性会被所有子类实例共享。
+无法向父类传递参数。
+容易造成代码的混乱和不必要的复杂性。</p> <p>代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function createObj(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+}
+
+function createChild(parent) {
+  var child = createObj(parent);
+  child.name = 'Child';
+  child.sayHello = function() {
+    console.log('Hello, I am ' + this.name);
+  };
+  return child;
+}
+
+var parent = {
+  name: 'Parent',
+  sayHello: function() {
+    console.log('Hello, I am ' + this.name);
+  }
+};
+
+var child = createChild(parent);
+child.sayHello(); // 输出 &quot;Hello, I am Child&quot;
+</code></pre></div><p>综上所述，不同的继承方式各有优缺点，我们可以根据具体的场景选择不同的继承方式。如果需要继承父类的原型属性和方法，可以使用原型链继承或组合继承；如果需要向父类传递参数，可以使用构造函数继承或组合继承；如果需要方便地实现对象之间的继承关系，可以使用原型式继承或寄生式继承。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/basics/继承.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/basics/模块化.html" class="prev">
+        API
+      </a></span> <span class="next"><a href="/about/basics/js事件循环机制和node事件循环机制.html">
+        js事件循环机制和node事件循环机制
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/63.be538378.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

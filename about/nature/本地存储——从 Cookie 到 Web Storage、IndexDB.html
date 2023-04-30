@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>四、本地存储——从 Cookie 到 Web Storage、IndexDB | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/12.a36537bf.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/7.0f2b711c.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>性能优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/nature/性能优化知识体系.html" class="sidebar-link">知识体系： 从一道面试题说起</a></li><li><a href="/about/nature/webpack性能调优与Gzip原理.html" class="sidebar-link">一、webpack 性能调优与 Gzip 原理</a></li><li><a href="/about/nature/图片优化-质量与性能的博弈.html" class="sidebar-link">二、图片优化——质量与性能的博弈</a></li><li><a href="/about/nature/浏览器缓存机制介绍与缓存策略剖析.html" class="sidebar-link">三、浏览器缓存机制介绍与缓存策略剖析</a></li><li><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html" class="active sidebar-link">四、本地存储——从 Cookie 到 Web Storage、IndexDB</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#故事的开始-从-cookie-说起" class="sidebar-link">故事的开始：从 Cookie 说起</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#cookie的性能劣势" class="sidebar-link">Cookie的性能劣势</a></li></ul></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#向前一步-web-storage" class="sidebar-link">向前一步：Web Storage</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#local-storage-与-session-storage-的区别" class="sidebar-link">Local Storage 与 Session Storage 的区别</a></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#web-storage-的特性" class="sidebar-link">Web Storage 的特性</a></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#web-storage-核心-api-使用示例" class="sidebar-link">Web Storage 核心 API 使用示例</a></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#应用场景" class="sidebar-link">应用场景</a></li></ul></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#终极形态-indexdb" class="sidebar-link">终极形态：IndexDB</a></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#indexdb-的应用场景" class="sidebar-link">IndexDB 的应用场景</a></li><li class="sidebar-sub-header"><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/about/nature/CDN 的缓存与回源机制解析.html" class="sidebar-link">五、CDN 的缓存与回源机制解析</a></li><li><a href="/about/nature/服务端渲染的探索与实践.html" class="sidebar-link">六、服务端渲染的探索与实践</a></li><li><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html" class="sidebar-link">七、知己知彼——解锁浏览器背后的运行机制</a></li><li><a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html" class="sidebar-link">八、对症下药—— DOM 优化原理与基本实践</a></li><li><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html" class="sidebar-link">九、千方百计——Event Loop 与异步更新策略</a></li><li><a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html" class="sidebar-link">十、最后一击——回流（Reflow）与重绘（Repaint）</a></li><li><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html" class="sidebar-link">十一、优化首屏体验——Lazy-Load 初探</a></li><li><a href="/about/nature/事件的节流throttle与防抖debounce.html" class="sidebar-link">十二、事件的节流（throttle）与防抖（debounce）</a></li><li><a href="/about/nature/Performance、LightHouse 与性能 API.html" class="sidebar-link">十三、Performance、LightHouse 与性能 API</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="四、本地存储-从-cookie-到-web-storage、indexdb"><a href="#四、本地存储-从-cookie-到-web-storage、indexdb" class="header-anchor">#</a> 四、本地存储——从 Cookie 到 Web Storage、IndexDB</h1> <p>随着移动网络的发展与演化，我们手机上现在除了有原生 App，还能跑“WebApp”——它即开即用，用
+完即走。一个优秀的 WebApp 甚至可以拥有和原生 App 媲美的功能和体验。
+我认为，WebApp 就是我们前端性能优化的产物，是我们前端工程师对体验不懈追求的结果，是 Web
+网页在性能上向 Native 应用的一次“宣战”。
+WebApp 优异的性能表现，要归功于浏览器存储技术的广泛应用——这其中除了我们上节提到的缓存，
+本地存储技术也功不可没。</p> <h2 id="故事的开始-从-cookie-说起"><a href="#故事的开始-从-cookie-说起" class="header-anchor">#</a> 故事的开始：从 Cookie 说起</h2> <p>Cookie 的本职工作并非本地存储，而是“维持状态”。
+在 Web 开发的早期，人们亟需解决的一个问题就是状态管理的问题：HTTP 协议是一个无状态协议，
+服务器接收客户端的请求，返回一个响应，故事到此就结束了，服务器并没有记录下关于客户端的任何
+信息。那么下次请求的时候，如何让服务器知道“我是我”呢？
+在这样的背景下，Cookie 应运而生。
+Cookie 说白了就是一个存储在浏览器里的一个小小的文本文件，它附着在 HTTP 请求上，在浏览器和
+服务器之间“飞来飞去”。它可以携带用户信息，当服务器检查 Cookie 的时候，便可以获取到客户端的
+状态。
+关于 Cookie 的详细内容，我们可以在 Chrome 的 Application 面板中查看到：
+<img src="/assets/img/youhua22.a30a638b.png">
+如大家所见，Cookie 以键值对的形式存在。</p> <h3 id="cookie的性能劣势"><a href="#cookie的性能劣势" class="header-anchor">#</a> Cookie的性能劣势</h3> <h4 id="cookie-不够大"><a href="#cookie-不够大" class="header-anchor">#</a> Cookie 不够大</h4> <p>大家知道，Cookie 是有体积上限的，它最大只能有 4KB。当 Cookie 超过 4KB 时，它将面临被裁切的
+命运。这样看来，Cookie 只能用来存取少量的信息。</p> <h4 id="过量的-cookie-会带来巨大的性能浪费"><a href="#过量的-cookie-会带来巨大的性能浪费" class="header-anchor">#</a> 过量的 Cookie 会带来巨大的性能浪费</h4> <p>Cookie 是紧跟域名的。我们通过响应头里的 Set-Cookie 指定要存储的 Cookie 值。默认情况下，
+domain 被设置为设置 Cookie 页面的主机名，我们也可以手动设置 domain 的值：</p> <div class="language- extra-class"><pre class="language-text"><code>Set-Cookie: name=xiuyan; domain=xiuyan.me
+</code></pre></div><p>同一个域名下的所有请求，都会携带 Cookie。大家试想，如果我们此刻仅仅是请求一张图片或者一个
+CSS 文件，我们也要携带一个 Cookie 跑来跑去（关键是 Cookie 里存储的信息我现在并不需要），这
+是一件多么劳民伤财的事情。Cookie 虽然小，请求却可以有很多，随着请求的叠加，这样的不必要的
+Cookie 带来的开销将是无法想象的。
+随着前端应用复杂度的提高，Cookie 也渐渐演化为了一个“存储多面手”——它不仅仅被用于维持状态，
+还被塞入了一些乱七八糟的其它信息，被迫承担起了本地存储的“重任”。在没有更好的本地存储解决方
+案的年代里，Cookie 小小的身体里承载了 4KB 内存所不能承受的压力。
+为了弥补 Cookie 的局限性，让“专业的人做专业的事情”，Web Storage 出现了。</p> <h2 id="向前一步-web-storage"><a href="#向前一步-web-storage" class="header-anchor">#</a> 向前一步：Web Storage</h2> <p>Web Storage 是 HTML5 专门为浏览器存储而提供的数据存储机制。它又分为 Local Storage 与
+Session Storage。这两组概念非常相近，我们不妨先理解它们之间的区别，再对它们的共性进行研
+究。</p> <h3 id="local-storage-与-session-storage-的区别"><a href="#local-storage-与-session-storage-的区别" class="header-anchor">#</a> Local Storage 与 Session Storage 的区别</h3> <p>两者的区别在于生命周期与作用域的不同。</p> <ul><li>生命周期：Local Storage 是持久化的本地存储，存储在其中的数据是永远不会过期的，使其消失
+的唯一办法是手动删除；而 Session Storage 是临时性的本地存储，它是会话级别的存储，当会话
+结束（页面被关闭）时，存储内容也随之被释放。</li> <li>作用域：Local Storage、Session Storage 和 Cookie 都遵循同源策略。但 Session Storage 特别
+的一点在于，即便是相同域名下的两个页面，只要它们不在同一个浏览器窗口中打开，那么它们的
+Session Storage 内容便无法共享。</li></ul> <h3 id="web-storage-的特性"><a href="#web-storage-的特性" class="header-anchor">#</a> Web Storage 的特性</h3> <ul><li>存储容量大： Web Storage 根据浏览器的不同，存储容量可以达到 5-10M 之间。</li> <li>仅位于浏览器端，不与服务端发生通信。</li></ul> <h3 id="web-storage-核心-api-使用示例"><a href="#web-storage-核心-api-使用示例" class="header-anchor">#</a> Web Storage 核心 API 使用示例</h3> <p>Web Storage 保存的数据内容和 Cookie 一样，是文本内容，以键值对的形式存在。Local Storage 与
+Session Storage 在 API 方面无异，这里我们以 localStorage 为例：</p> <ul><li>存储数据：setItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.setItem('user_name', 'xiuyan')
+</code></pre></div><ul><li>读取数据： getItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.getItem('user_name')
+</code></pre></div><ul><li>删除某一键名对应的数据： removeItem()</li></ul> <div class="language- extra-class"><pre class="language-text"><code>localStorage.removeItem('user_name')
+</code></pre></div><p>清空数据记录：clear()</p> <div class="language- extra-class"><pre class="language-text"><code>localStorage.clear()
+</code></pre></div><h3 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h3> <h4 id="local-storage"><a href="#local-storage" class="header-anchor">#</a> Local Storage</h4> <p>Local Storage 在存储方面没有什么特别的限制，理论上 Cookie 无法胜任的、可以用简单的键值对来存
+取的数据存储任务，都可以交给 Local Storage 来做。
+这里给大家举个例子，考虑到 Local Storage 的特点之一是持久，有时我们更倾向于用它来存储一些内
+容稳定的资源。比如图片内容丰富的电商网站会用它来存储 Base64 格式的图片字符串：
+<img src="/assets/img/youhua23.803b20b8.png">
+有的网站还会用它存储一些不经常更新的 CSS、JS 等静态资源。</p> <h4 id="session-storage"><a href="#session-storage" class="header-anchor">#</a> Session Storage</h4> <p>Session Storage 更适合用来存储生命周期和它同步的会话级别的信息。这些信息只适用于当前会话，
+当你开启新的会话时，它也需要相应的更新或释放。比如微博的 Session Storage 就主要是存储你本次
+会话的浏览足迹：
+<img src="/assets/img/youhua24.d7d505db.png">
+lasturl 对应的就是你上一次访问的 URL 地址，这个地址是即时的。当你切换 URL 时，它随之更新，当
+你关闭页面时，留着它也确实没有什么意义了，干脆释放吧。这样的数据用 Session Storage 来处理再
+合适不过。
+这样看来，Web Storage 确实也够强大了。那么 Web Storage 是否能 hold 住所有的存储场景呢？
+答案是否定的。大家也看到了，Web Storage 是一个从定义到使用都非常简单的东西。它使用键值对的
+形式进行存储，这种模式有点类似于对象，却甚至连对象都不是——它只能存储字符串，要想得到对
+象，我们还需要先对字符串进行一轮解析。
+说到底，Web Storage 是对 Cookie 的拓展，它只能用于存储少量的简单数据。当遇到大规模的、结构
+复杂的数据时，Web Storage 也爱莫能助了。这时候我们就要清楚我们的终极大 boss——IndexDB！</p> <h2 id="终极形态-indexdb"><a href="#终极形态-indexdb" class="header-anchor">#</a> 终极形态：IndexDB</h2> <p>IndexDB 是一个运行在浏览器上的非关系型数据库。既然是数据库了，那就不是 5M、10M 这样小打小
+闹级别了。理论上来说，IndexDB 是没有存储上限的（一般来说不会小于 250M）。它不仅可以存储字
+符串，还可以存储二进制数据。
+IndexDB 从推出之日起，其优质教程就层出不绝，我们今天不再着重讲解它的详细操作。接下来，我们
+遵循 MDN 推荐的操作模式，通过一个基本的 IndexDB 使用流程，旨在对 IndexDB 形成一个感性的认
+知：</p> <ol><li>打开/创建一个 IndexDB 数据库（当该数据库不存在时，open 方法会直接创建一个名为
+xiaoceDB 新数据库）。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 后面的回调中，我们可以通过event.target.result拿到数据库实例
+let db
+// 参数1位数据库名，参数2为版本号
+const request = window.indexedDB.open(&quot;xiaoceDB&quot;, 1)
+// 使用IndexDB失败时的监听函数
+request.onerror = function (event) {
+  console.log('无法使用IndexDB')
+}
+// 成功
+request.onsuccess = function (event) {
+  // 此处就可以获取到db实例
+  db = event.target.result
+  console.log(&quot;你打开了IndexDB&quot;)
+}
+</code></pre></div><ol start="2"><li>创建一个 object store（object store 对标到数据库中的“表”单位）。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// onupgradeneeded事件会在初始化数据库/版本发生更新时被调用，我们在它的监听函数中创建object
+store
+request.onupgradeneeded = function (event) {
+  let objectStore
+  // 如果同名表未被创建过，则新建test表
+  if (!db.objectStoreNames.contains('test')) {
+    objectStore = db.createObjectStore('test', { keyPath: 'id' })
+  }
+}
+</code></pre></div><ol start="3"><li>构建一个事务来执行一些数据库操作，像增加或提取数据等。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 创建事务，指定表格名称和读写权限
+const transaction = db.transaction([&quot;test&quot;],&quot;readwrite&quot;)
+// 拿到Object Store对象
+const objectStore = transaction.objectStore(&quot;test&quot;)
+// 向表格写入数据
+objectStore.add({id: 1, name: 'xiuyan'})
+</code></pre></div><ol start="4"><li>通过监听正确类型的事件以等待操作完成。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 操作成功时的监听函数
+transaction.oncomplete = function (event) {
+  console.log(&quot;操作成功&quot;)
+}
+// 操作失败时的监听函数
+transaction.onerror = function (event) {
+  console.log(&quot;这里有一个Error&quot;)
+}
+</code></pre></div><h2 id="indexdb-的应用场景"><a href="#indexdb-的应用场景" class="header-anchor">#</a> IndexDB 的应用场景</h2> <p>通过上面的示例大家可以看出，在 IndexDB 中，我们可以创建多个数据库，一个数据库中创建多张
+表，一张表中存储多条数据——这足以 hold 住复杂的结构性数据。IndexDB 可以看做是 LocalStorage
+的一个升级，当数据的复杂度和规模上升到了 LocalStorage 无法解决的程度，我们毫无疑问可以请出
+IndexDB 来帮忙。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>浏览器缓存/存储技术的出现和发展，为我们的前端应用带来了无限的转机。近年来基于缓存/存储技术
+的第三方库层出不绝，此外还衍生出了 PWA 这样优秀的 Web 应用模型。可以说，现代前端应用，尤其
+是移动端应用，之所以可以发展到在体验上叫板 Native 的地步，主要就是仰仗缓存/存储立下的汗马功
+劳。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/nature/浏览器缓存机制介绍与缓存策略剖析.html" class="prev">
+        三、浏览器缓存机制介绍与缓存策略剖析
+      </a></span> <span class="next"><a href="/about/nature/CDN 的缓存与回源机制解析.html">
+        五、CDN 的缓存与回源机制解析
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/12.a36537bf.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>

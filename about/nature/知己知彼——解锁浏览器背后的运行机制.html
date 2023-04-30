@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>七、知己知彼——解锁浏览器背后的运行机制 | phr技术博客</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    
+    <link rel="preload" href="/assets/css/0.styles.b10b5fb3.css" as="style"><link rel="preload" href="/assets/js/app.6365c275.js" as="script"><link rel="preload" href="/assets/js/2.f728fa66.js" as="script"><link rel="preload" href="/assets/js/7.0f2b711c.js" as="script"><link rel="preload" href="/assets/js/13.35cba3fc.js" as="script"><link rel="prefetch" href="/assets/js/10.93260224.js"><link rel="prefetch" href="/assets/js/100.f6b8ec7d.js"><link rel="prefetch" href="/assets/js/101.967b6c5a.js"><link rel="prefetch" href="/assets/js/102.21711343.js"><link rel="prefetch" href="/assets/js/103.d49ec33e.js"><link rel="prefetch" href="/assets/js/104.977a3b03.js"><link rel="prefetch" href="/assets/js/105.b99482a1.js"><link rel="prefetch" href="/assets/js/106.e4a47e6c.js"><link rel="prefetch" href="/assets/js/107.0fbdc788.js"><link rel="prefetch" href="/assets/js/108.3c5b4338.js"><link rel="prefetch" href="/assets/js/109.3684a685.js"><link rel="prefetch" href="/assets/js/11.49b33569.js"><link rel="prefetch" href="/assets/js/110.baed003e.js"><link rel="prefetch" href="/assets/js/111.83769994.js"><link rel="prefetch" href="/assets/js/112.946c5f99.js"><link rel="prefetch" href="/assets/js/12.a36537bf.js"><link rel="prefetch" href="/assets/js/14.0e48b2e5.js"><link rel="prefetch" href="/assets/js/15.e55cd707.js"><link rel="prefetch" href="/assets/js/16.f872fbeb.js"><link rel="prefetch" href="/assets/js/17.f7a4d99b.js"><link rel="prefetch" href="/assets/js/18.ba229207.js"><link rel="prefetch" href="/assets/js/19.92de1ede.js"><link rel="prefetch" href="/assets/js/20.3188b6de.js"><link rel="prefetch" href="/assets/js/21.720e9417.js"><link rel="prefetch" href="/assets/js/22.fa36b946.js"><link rel="prefetch" href="/assets/js/23.ef58e05b.js"><link rel="prefetch" href="/assets/js/24.881d6b82.js"><link rel="prefetch" href="/assets/js/25.8af9bcbe.js"><link rel="prefetch" href="/assets/js/26.43432835.js"><link rel="prefetch" href="/assets/js/27.0f7b8718.js"><link rel="prefetch" href="/assets/js/28.a0c57751.js"><link rel="prefetch" href="/assets/js/29.c1658d5b.js"><link rel="prefetch" href="/assets/js/3.1568aedc.js"><link rel="prefetch" href="/assets/js/30.c4fc88ff.js"><link rel="prefetch" href="/assets/js/31.1fc1fc07.js"><link rel="prefetch" href="/assets/js/32.d63a6056.js"><link rel="prefetch" href="/assets/js/33.8b8854ed.js"><link rel="prefetch" href="/assets/js/34.7f7a6517.js"><link rel="prefetch" href="/assets/js/35.1628cb9c.js"><link rel="prefetch" href="/assets/js/36.3703f0c9.js"><link rel="prefetch" href="/assets/js/37.9a8be999.js"><link rel="prefetch" href="/assets/js/38.1bad6e08.js"><link rel="prefetch" href="/assets/js/39.887115b5.js"><link rel="prefetch" href="/assets/js/4.529cb57e.js"><link rel="prefetch" href="/assets/js/40.cb099c93.js"><link rel="prefetch" href="/assets/js/41.b39ca612.js"><link rel="prefetch" href="/assets/js/42.6a0ec8ac.js"><link rel="prefetch" href="/assets/js/43.de1b9001.js"><link rel="prefetch" href="/assets/js/44.133a895c.js"><link rel="prefetch" href="/assets/js/45.1961312a.js"><link rel="prefetch" href="/assets/js/46.971341f1.js"><link rel="prefetch" href="/assets/js/47.7bc2173e.js"><link rel="prefetch" href="/assets/js/48.5d895a7e.js"><link rel="prefetch" href="/assets/js/49.638058f6.js"><link rel="prefetch" href="/assets/js/5.387bf8e2.js"><link rel="prefetch" href="/assets/js/50.e742ad4c.js"><link rel="prefetch" href="/assets/js/51.5d94ed5f.js"><link rel="prefetch" href="/assets/js/52.55a51aaa.js"><link rel="prefetch" href="/assets/js/53.1ba60b2b.js"><link rel="prefetch" href="/assets/js/54.73a995e7.js"><link rel="prefetch" href="/assets/js/55.4e018c53.js"><link rel="prefetch" href="/assets/js/56.6cb78c59.js"><link rel="prefetch" href="/assets/js/57.563d5c97.js"><link rel="prefetch" href="/assets/js/58.f8954d6d.js"><link rel="prefetch" href="/assets/js/59.3d2a7fdb.js"><link rel="prefetch" href="/assets/js/6.a279f8e6.js"><link rel="prefetch" href="/assets/js/60.5a3e1e46.js"><link rel="prefetch" href="/assets/js/61.7e804132.js"><link rel="prefetch" href="/assets/js/62.e5287e80.js"><link rel="prefetch" href="/assets/js/63.be538378.js"><link rel="prefetch" href="/assets/js/64.317aebd1.js"><link rel="prefetch" href="/assets/js/65.7643d336.js"><link rel="prefetch" href="/assets/js/66.9b0f8d09.js"><link rel="prefetch" href="/assets/js/67.756bb42b.js"><link rel="prefetch" href="/assets/js/68.c56721fc.js"><link rel="prefetch" href="/assets/js/69.5f86f31b.js"><link rel="prefetch" href="/assets/js/70.417864a8.js"><link rel="prefetch" href="/assets/js/71.4aee4693.js"><link rel="prefetch" href="/assets/js/72.c013fc2a.js"><link rel="prefetch" href="/assets/js/73.50ca59ad.js"><link rel="prefetch" href="/assets/js/74.b627791d.js"><link rel="prefetch" href="/assets/js/75.f5879061.js"><link rel="prefetch" href="/assets/js/76.e7be1127.js"><link rel="prefetch" href="/assets/js/77.aafb8bbb.js"><link rel="prefetch" href="/assets/js/78.0f2b7ba1.js"><link rel="prefetch" href="/assets/js/79.ee2c7dff.js"><link rel="prefetch" href="/assets/js/8.fbc348ff.js"><link rel="prefetch" href="/assets/js/80.d0d7ac73.js"><link rel="prefetch" href="/assets/js/81.e10b54fc.js"><link rel="prefetch" href="/assets/js/82.03db26fd.js"><link rel="prefetch" href="/assets/js/83.89bcaab3.js"><link rel="prefetch" href="/assets/js/84.e3c968c0.js"><link rel="prefetch" href="/assets/js/85.8d36c455.js"><link rel="prefetch" href="/assets/js/86.2d239c5d.js"><link rel="prefetch" href="/assets/js/87.0bc771d9.js"><link rel="prefetch" href="/assets/js/88.f8a1db97.js"><link rel="prefetch" href="/assets/js/89.1671c085.js"><link rel="prefetch" href="/assets/js/9.600c48e6.js"><link rel="prefetch" href="/assets/js/90.6a7cb76f.js"><link rel="prefetch" href="/assets/js/91.96dda1bd.js"><link rel="prefetch" href="/assets/js/92.defa3643.js"><link rel="prefetch" href="/assets/js/93.1a469c8a.js"><link rel="prefetch" href="/assets/js/94.d9b30b49.js"><link rel="prefetch" href="/assets/js/95.3b10c597.js"><link rel="prefetch" href="/assets/js/96.ee7c131a.js"><link rel="prefetch" href="/assets/js/97.dbf5d04e.js"><link rel="prefetch" href="/assets/js/98.60f0f169.js"><link rel="prefetch" href="/assets/js/99.58cbe020.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.b10b5fb3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">phr技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/project/项目总结.html" class="nav-link">
+  项目经历
+</a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
+  微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
+</a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
+  小程序架构
+</a></div><div class="nav-item"><a href="/about/vue/newVue时候都做了什么.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/性能优化知识体系.html#从原理到实践-各个击破" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/18722696161" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue2</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>WebPack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>性能优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/nature/性能优化知识体系.html" class="sidebar-link">知识体系： 从一道面试题说起</a></li><li><a href="/about/nature/webpack性能调优与Gzip原理.html" class="sidebar-link">一、webpack 性能调优与 Gzip 原理</a></li><li><a href="/about/nature/图片优化-质量与性能的博弈.html" class="sidebar-link">二、图片优化——质量与性能的博弈</a></li><li><a href="/about/nature/浏览器缓存机制介绍与缓存策略剖析.html" class="sidebar-link">三、浏览器缓存机制介绍与缓存策略剖析</a></li><li><a href="/about/nature/本地存储——从 Cookie 到 Web Storage、IndexDB.html" class="sidebar-link">四、本地存储——从 Cookie 到 Web Storage、IndexDB</a></li><li><a href="/about/nature/CDN 的缓存与回源机制解析.html" class="sidebar-link">五、CDN 的缓存与回源机制解析</a></li><li><a href="/about/nature/服务端渲染的探索与实践.html" class="sidebar-link">六、服务端渲染的探索与实践</a></li><li><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html" class="active sidebar-link">七、知己知彼——解锁浏览器背后的运行机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#浏览器的-心" class="sidebar-link">浏览器的“心”</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#开启浏览器渲染-黑盒" class="sidebar-link">开启浏览器渲染“黑盒”</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#浏览器渲染过程解析" class="sidebar-link">浏览器渲染过程解析</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#几棵重要的-树" class="sidebar-link">几棵重要的“树”</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#不做无用功-基于渲染流程的-css-优化建议" class="sidebar-link">不做无用功：基于渲染流程的 CSS 优化建议</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#告别阻塞-css-与-js-的加载顺序优化" class="sidebar-link">告别阻塞：CSS 与 JS 的加载顺序优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#css-的阻塞" class="sidebar-link">CSS 的阻塞</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#js-的阻塞" class="sidebar-link">JS 的阻塞</a></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#js的三种加载方式" class="sidebar-link">JS的三种加载方式</a></li></ul></li><li class="sidebar-sub-header"><a href="/about/nature/知己知彼——解锁浏览器背后的运行机制.html#小结" class="sidebar-link">小结</a></li></ul></li><li><a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html" class="sidebar-link">八、对症下药—— DOM 优化原理与基本实践</a></li><li><a href="/about/nature/千方百计——Event Loop 与异步更新策略.html" class="sidebar-link">九、千方百计——Event Loop 与异步更新策略</a></li><li><a href="/about/nature/最后一击——回流Reflow与重绘Repaint.html" class="sidebar-link">十、最后一击——回流（Reflow）与重绘（Repaint）</a></li><li><a href="/about/nature/优化首屏体验——Lazy-Load 初探.html" class="sidebar-link">十一、优化首屏体验——Lazy-Load 初探</a></li><li><a href="/about/nature/事件的节流throttle与防抖debounce.html" class="sidebar-link">十二、事件的节流（throttle）与防抖（debounce）</a></li><li><a href="/about/nature/Performance、LightHouse 与性能 API.html" class="sidebar-link">十三、Performance、LightHouse 与性能 API</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>区块链</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端遇到的问题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>日志及监控</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>chrome插件开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="七、知己知彼-解锁浏览器背后的运行机制"><a href="#七、知己知彼-解锁浏览器背后的运行机制" class="header-anchor">#</a> 七、知己知彼——解锁浏览器背后的运行机制</h1> <p>从本章开始，我们的性能优化探险也正式进入到了“深水区”——浏览器端的性能优化。
+平时我们几乎每天都在和浏览器打交道，在一些兼容任务比较繁重的团队里，苦逼的前端攻城师们甚至
+为了兼容各个浏览器而不断地去测试和调试，还要在脑子中记下各种遇到的 BUG 及解决方案。即便如
+此，我们好像并没有去主动地关注和了解下浏览器的工作原理。我想如果我们对此做一点了解，在项目
+过程中就可以有效地避免一些问题，并对页面性能做出相应的改进。
+“知己知彼，百战不殆”，今天，我们就一起来揭开浏览器渲染过程的神秘面纱！</p> <h2 id="浏览器的-心"><a href="#浏览器的-心" class="header-anchor">#</a> 浏览器的“心”</h2> <p>浏览器的“心”，说的就是浏览器的内核。在研究浏览器微观的运行机制之前，我们首先要对浏览器内核
+有一个宏观的把握。
+开篇我提到许多工程师因为业务需要，免不了需要去处理不同浏览器下代码渲染结果的差异性。这些差
+异性正是因为浏览器内核的不同而导致的——浏览器内核决定了浏览器解释网页语法的方式。
+浏览器内核可以分成两部分：渲染引擎（Layout Engine 或者 Rendering Engine）和 JS 引擎。早期渲
+染引擎和 JS 引擎并没有十分明确的区分，但随着 JS 引擎越来越独立，内核也成了渲染引擎的代称（下
+文我们将沿用这种叫法）。渲染引擎又包括了 HTML 解释器、CSS 解释器、布局、网络、存储、图形、
+音视频、图片解码器等等零部件。
+<img src="/assets/img/youhua34.4a1c5f8f.png">
+目前市面上常见的浏览器内核可以分为这四种：Trident（IE）、Gecko（火狐）、Blink（Chrome、
+Opera）、Webkit（Safari）。
+这里面大家最耳熟能详的可能就是 Webkit 内核了。很多同学可能会听说过 Chrome 的内核就是
+Webkit，殊不知 Chrome 内核早已迭代为了 Blink。但是换汤不换药，Blink 其实也是基于 Webkit 衍生
+而来的一个分支，因此，Webkit 内核仍然是当下浏览器世界真正的霸主。
+下面我们就以 Webkit 为例，对现代浏览器的渲染过程进行一个深度的剖析。</p> <h2 id="开启浏览器渲染-黑盒"><a href="#开启浏览器渲染-黑盒" class="header-anchor">#</a> 开启浏览器渲染“黑盒”</h2> <p>什么是渲染过程？简单来说，渲染引擎根据 HTML 文件描述构建相应的数学模型，调用浏览器各个零部
+件，从而将网页资源代码转换为图像结果，这个过程就是渲染过程（如下图）。
+<img src="/assets/img/youhua35.264a9690.png">
+从这个流程来看，浏览器呈现网页这个过程，宛如一个黑盒。在这个神秘的黑盒中，有许多功能模块，
+内核内部的实现正是这些功能模块相互配合协同工作进行的。其中我们最需要关注的，就是HTML 解释
+器、CSS 解释器、图层布局计算模块、视图绘制模块与JavaScript 引擎这几大模块：</p> <ul><li>HTML 解释器：将 HTML 文档经过词法分析输出 DOM 树。</li> <li>CSS 解释器：解析 CSS 文档, 生成样式规则。</li> <li>图层布局计算模块：布局计算每个对象的精确位置和大小。</li> <li>视图绘制模块：进行具体节点的图像绘制，将像素渲染到屏幕上。</li> <li>JavaScript 引擎：编译执行 Javascript 代码。</li></ul> <h2 id="浏览器渲染过程解析"><a href="#浏览器渲染过程解析" class="header-anchor">#</a> 浏览器渲染过程解析</h2> <p>有了对零部件的了解打底，我们就可以一起来走一遍浏览器的渲染流程了。在浏览器里，每一个页面的
+首次渲染都经历了如下阶段（图中箭头不代表串行，有一些操作是并行进行的，下文会说明）：
+<img src="/assets/img/youhua36.713d2a54.png"></p> <ul><li>解析 HTML
+在这一步浏览器执行了所有的加载解析逻辑，在解析 HTML 的过程中发出了页面渲染所需的各种外部资
+源请求。</li> <li>计算样式
+浏览器将识别并加载所有的 CSS 样式信息与 DOM 树合并，最终生成页面 render 树（:after :before 这
+样的伪元素会在这个环节被构建到 DOM 树中）。</li> <li>计算图层布局
+页面中所有元素的相对位置信息，大小等信息均在这一步得到计算。</li> <li>绘制图层
+在这一步中浏览器会根据我们的 DOM 代码结果，把每一个页面图层转换为像素，并对所有的媒体文件
+进行解码。</li> <li>整合图层，得到页面
+最后一步浏览器会合并合各个图层，将数据由 CPU 输出给 GPU 最终绘制在屏幕上。（复杂的视图层会
+给这个阶段的 GPU 计算带来一些压力，在实际应用中为了优化动画性能，我们有时会手动区分不同的
+图层）。</li></ul> <h2 id="几棵重要的-树"><a href="#几棵重要的-树" class="header-anchor">#</a> 几棵重要的“树”</h2> <p>上面的内容没有理解透彻？别着急，我们一起来捋一捋这个过程中的重点——树！
+为了使渲染过程更明晰一些，我们需要给这些”树“们一个特写:
+<img src="/assets/img/youhua37.ad4034ba.png"></p> <ul><li>DOM 树：解析 HTML 以创建的是 DOM 树（DOM tree ）：渲染引擎开始解析 HTML 文档，转换
+树中的标签到 DOM 节点，它被称为“内容树”。</li> <li>CSSOM 树：解析 CSS（包括外部 CSS 文件和样式元素）创建的是 CSSOM 树。CSSOM 的解析过
+程与 DOM 的解析过程是并行的。</li> <li>渲染树：CSSOM 与 DOM 结合，之后我们得到的就是渲染树（Render tree ）。</li> <li>布局渲染树：从根节点递归调用，计算每一个元素的大小、位置等，给每个节点所应该出现在屏幕
+上的精确坐标，我们便得到了基于渲染树的布局渲染树（Layout of the render tree）。</li> <li>绘制渲染树: 遍历渲染树，每个节点将使用 UI 后端层来绘制。整个过程叫做绘制渲染树（Painting
+the render tree）。</li></ul> <p>基于这些“树”，我们再梳理一番：
+渲染过程说白了，首先是基于 HTML 构建一个 DOM 树，这棵 DOM 树与 CSS 解释器解析出的 CSSOM
+相结合，就有了布局渲染树。最后浏览器以布局渲染树为蓝本，去计算布局并绘制图像，我们页面的初
+次渲染就大功告成了。
+之后每当一个新元素加入到这个 DOM 树当中，浏览器便会通过 CSS 引擎查遍 CSS 样式表，找到符合
+该元素的样式规则应用到这个元素上，然后再重新去绘制它。
+有心的同学可能已经在思考了，查表是个花时间的活，我怎么让浏览器的查询工作又快又好地实现呢？
+OK，讲了这么多原理，我们终于引出了我们的第一个可转化为代码的优化点——CSS 样式表规则的优
+化！</p> <h2 id="不做无用功-基于渲染流程的-css-优化建议"><a href="#不做无用功-基于渲染流程的-css-优化建议" class="header-anchor">#</a> 不做无用功：基于渲染流程的 CSS 优化建议</h2> <p>在给出 CSS 选择器方面的优化建议之前，先告诉大家一个小知识：CSS 引擎查找样式表，对每条规则都
+按从右到左的顺序去匹配。 看如下规则：</p> <div class="language- extra-class"><pre class="language-text"><code>#myList li {}
+</code></pre></div><p>这样的写法其实很常见。大家平时习惯了从左到右阅读的文字阅读方式，会本能地以为浏览器也是从左
+到右匹配 CSS 选择器的，因此会推测这个选择器并不会费多少力气：#myList 是一个 id 选择器，它对
+应的元素只有一个，查找起来应该很快。定位到了 myList 元素，等于是缩小了范围后再去查找它后代
+中的 li 元素，没毛病。
+事实上，CSS 选择符是从右到左进行匹配的。我们这个看似“没毛病”的选择器，实际开销相当高：浏览
+器必须遍历页面上每个 li 元素，并且每次都要去确认这个 li 元素的父元素 id 是不是 myList，你说坑不
+坑！
+说到坑，不知道大家还记不记得这个经典的通配符：</p> <div class="language- extra-class"><pre class="language-text"><code>* {}
+</code></pre></div><p>入门 CSS 的时候，不少同学拿通配符清除默认样式（我曾经也是通配符用户的一员）。但这个家伙很恐
+怖，它会匹配所有元素，所以浏览器必须去遍历每一个元素！大家低头看看自己页面里的元素个数，是
+不是心凉了——这得计算多少次呀！
+这样一看，一个小小的 CSS 选择器，也有不少的门道！好的 CSS 选择器书写习惯，可以为我们带来非
+常可观的性能提升。根据上面的分析，我们至少可以总结出如下性能提升的方案：</p> <ul><li>避免使用通配符，只对需要用到的元素进行选择。</li> <li>关注可以通过继承实现的属性，避免重复匹配重复定义。</li> <li>少用标签选择器。如果可以，用类选择器替代，举个🌰：
+错误示范：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>#myList li{}
+</code></pre></div><p>课代表：</p> <div class="language- extra-class"><pre class="language-text"><code>.myList_li {}
+</code></pre></div><ul><li>不要画蛇添足，id 和 class 选择器不应该被多余的标签选择器拖后腿。举个🌰：
+错误示范</li></ul> <div class="language- extra-class"><pre class="language-text"><code>.myList#title
+</code></pre></div><p>课代表</p> <div class="language- extra-class"><pre class="language-text"><code>#title
+</code></pre></div><ul><li>减少嵌套。后代选择器的开销是最高的，因此我们应该尽量将选择器的深度降到最低（最高不要超
+过三层），尽可能使用类来关联每一个标签元素。</li></ul> <p>搞定了 CSS 选择器，万里长征才刚刚开始的第一步。但现在你已经理解了浏览器的工作过程，接下来的
+征程对你来说并不再是什么难题~</p> <h2 id="告别阻塞-css-与-js-的加载顺序优化"><a href="#告别阻塞-css-与-js-的加载顺序优化" class="header-anchor">#</a> 告别阻塞：CSS 与 JS 的加载顺序优化</h2> <p>说完了过程，我们来说一说特性。
+HTML、CSS 和 JS，都具有阻塞渲染的特性。
+HTML 阻塞，天经地义——没有 HTML，何来 DOM？没有 DOM，渲染和优化，都是空谈。
+那么 CSS 和 JS 的阻塞又是怎么回事呢？</p> <h3 id="css-的阻塞"><a href="#css-的阻塞" class="header-anchor">#</a> CSS 的阻塞</h3> <p>在刚刚的过程中，我们提到 DOM 和 CSSOM 合力才能构建渲染树。这一点会给性能造成严重影响：默
+认情况下，CSS 是阻塞的资源。浏览器在构建 CSSOM 的过程中，不会渲染任何已处理的内容。即便
+DOM 已经解析完毕了，只要 CSSOM 不 OK，那么渲染这个事情就不 OK（这主要是为了避免没有 CSS
+的 HTML 页面丑陋地“裸奔”在用户眼前）。
+我们知道，只有当我们开始解析 HTML 后、解析到 link 标签或者 style 标签时，CSS 才登场，CSSOM
+的构建才开始。很多时候，DOM 不得不等待 CSSOM。因此我们可以这样总结：
+CSS 是阻塞渲染的资源。需要将它尽早、尽快地下载到客户端，以便缩短首次渲染的时间。
+事实上，现在很多团队都已经做到了尽早（将 CSS 放在 head 标签里）和尽快（启用 CDN 实现静态资
+源加载速度的优化）。这个“把 CSS 往前放”的动作，对很多同学来说已经内化为一种编码习惯。那么现
+在我们还应该知道，这个“习惯”不是空穴来风，它是由 CSS 的特性决定的。</p> <h3 id="js-的阻塞"><a href="#js-的阻塞" class="header-anchor">#</a> JS 的阻塞</h3> <p>不知道大家注意到没有，前面我们说过程的时候，花了很多笔墨去说 HTML、说 CSS。相比之下，JS 的
+出镜率也太低了点。
+这当然不是因为 JS 不重要。而是因为，在首次渲染过程中，JS 并不是一个非登场不可的角色——没有
+JS，CSSOM 和 DOM 照样可以组成渲染树，页面依然会呈现——即使它死气沉沉、毫无交互。
+JS 的作用在于修改，它帮助我们修改网页的方方面面：内容、样式以及它如何响应用户交互。这“方方
+面面”的修改，本质上都是对 DOM 和 CSSDOM 进行修改。因此 JS 的执行会阻止 CSSOM，在我们不作
+显式声明的情况下，它也会阻塞 DOM。
+我们通过一个🌰来理解一下这个机制：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+  &lt;title&gt;JS阻塞测试&lt;/title&gt;
+  &lt;style&gt;
+    #container {
+      background-color: yellow;
+      width: 100px;
+      height: 100px;
+    }
+  &lt;/style&gt;
+  &lt;script&gt;
+    // 尝试获取container元素
+    var container = document.getElementById(&quot;container&quot;)
+    console.log('container', container)
+  &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div id=&quot;container&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+    // 尝试获取container元素
+    var container = document.getElementById(&quot;container&quot;)
+    console.log('container', container)
+    // 输出container元素此刻的背景色
+    console.log('container bgColor',
+      getComputedStyle(container).backgroundColor)
+  &lt;/script&gt;
+&lt;style&gt;
+  #container {
+    background-color: blue;
+  }
+&lt;/style&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p>三个 console 的结果分别为：
+<img src="/assets/img/youhua38.b45393e8.png">
+注：本例仅使用了内联 JS 做测试。感兴趣的同学可以把这部分 JS 当做外部文件引入看看效果——它们
+的表现一致。
+第一次尝试获取 id 为 container 的 DOM 失败，这说明 JS 执行时阻塞了 DOM，后续的 DOM 无法构
+建；第二次才成功，这说明脚本块只能找到在它前面构建好的元素。这两者结合起来，“阻塞 DOM”得
+到了验证。再看第三个 console，尝试获取 CSS 样式，获取到的是在 JS 代码执行前的背景色
+（yellow），而非后续设定的新样式（blue），说明 CSSOM 也被阻塞了。那么在阻塞的背后，到底发
+生了什么呢？
+我们前面说过，JS 引擎是独立于渲染引擎存在的。我们的 JS 代码在文档的何处插入，就在何处执行。
+当 HTML 解析器遇到一个 script 标签时，它会暂停渲染过程，将控制权交给 JS 引擎。JS 引擎对内联的
+JS 代码会直接执行，对外部 JS 文件还要先获取到脚本、再进行执行。等 JS 引擎运行完毕，浏览器又会
+把控制权还给渲染引擎，继续 CSSOM 和 DOM 的构建。 因此与其说是 JS 把 CSS 和 HTML 阻塞了，不
+如说是 JS 引擎抢走了渲染引擎的控制权。
+现在理解了阻塞的表现与原理，我们开始思考一个问题。浏览器之所以让 JS 阻塞其它的活动，是因为
+它不知道 JS 会做什么改变，担心如果不阻止后续的操作，会造成混乱。但是我们是写 JS 的人，我们知
+道 JS 会做什么改变。假如我们可以确认一个 JS 文件的执行时机并不一定非要是此时此刻，我们就可以
+通过对它使用 defer 和 async 来避免不必要的阻塞，这里我们就引出了外部 JS 的三种加载方式。</p> <h3 id="js的三种加载方式"><a href="#js的三种加载方式" class="header-anchor">#</a> JS的三种加载方式</h3> <ul><li>正常模式：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+</code></pre></div><p>这种情况下 JS 会阻塞浏览器，浏览器必须等待 index.js 加载和执行完毕才能去做其它事情。</p> <ul><li>async 模式：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;script async src=&quot;index.js&quot;&gt;&lt;/script&gt;
+</code></pre></div><p>async 模式下，JS 不会阻塞浏览器做任何其它的事情。它的加载是异步的，当它加载结束，JS 脚本会立
+即执行。</p> <ul><li>defer 模式：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;script defer src=&quot;index.js&quot;&gt;&lt;/script&gt;
+</code></pre></div><p>defer 模式下，JS 的加载是异步的，执行是被推迟的。等整个文档解析完成、DOMContentLoaded 事
+件即将被触发时，被标记了 defer 的 JS 文件才会开始依次执行。
+从应用的角度来说，一般当我们的脚本与 DOM 元素和其它脚本之间的依赖关系不强时，我们会选用
+async；当脚本依赖于 DOM 元素和其它脚本的执行结果时，我们会选用 defer。
+通过审时度势地向 script 标签添加 async/defer，我们就可以告诉浏览器在等待脚本可用期间不阻止其
+它的工作，这样可以显著提升性能。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>我们知道，当 JS 登场时，往往意味着对 DOM 的操作。DOM 操作所导致的性能开销的“昂贵”，大家可
+能早就有所耳闻，雅虎军规里很重要的一条就是“尽量减少 DOM 访问”。
+那么 DOM 到底为什么慢，我们如何去规避这种慢呢？这里我们就引出了下一个章节需要重点解释的两
+个概念：CSS 中的回流（Reflow）与重绘（Repaint）。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/18722696161/edit/master/docs/about/nature/知己知彼——解锁浏览器背后的运行机制.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/nature/服务端渲染的探索与实践.html" class="prev">
+        六、服务端渲染的探索与实践
+      </a></span> <span class="next"><a href="/about/nature/对症下药—— DOM 优化原理与基本实践.html">
+        八、对症下药—— DOM 优化原理与基本实践
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.6365c275.js" defer></script><script src="/assets/js/2.f728fa66.js" defer></script><script src="/assets/js/7.0f2b711c.js" defer></script><script src="/assets/js/13.35cba3fc.js" defer></script>
+  </body>
+</html>
